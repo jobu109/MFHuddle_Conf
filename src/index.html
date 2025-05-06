@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Floyd Desk XPanel</title>
+  
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Muli:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+    <script>
+      window.addEventListener("error", (e) => {
+        console.error("SCRIPT ERROR:", e.message, e.filename, e.lineno);
+      });
+    </script>
+  </head>
+  
+
+<body>
+  <section id="top">
+
+    <div id="time">12:00 PM</div>
+    <div id="date">Wednesday, April 16, 2025</div>
+  </section>
+    <!-- Left Navigation -->
+    <nav id="left-nav">
+      <button class="nav-btn" data-page="home">
+        <img src="./assets/img/glassrectangle.png" alt="Home Background" class="btn-bg">
+        <i class="fas fa-home"></i>
+        <span>Home</span>
+      </button>
+      <button class="nav-btn" data-page="video">
+        <img src="./assets/img/glassrectangle.png" alt="Video Background" class="btn-bg">
+        <i class="fas fa-tv"></i>
+        <span>Video</span>
+      </button>
+      
+      <button class="nav-btn" data-page="displays">
+        <img src="./assets/img/glassrectangle.png" alt="Displays Background" class="btn-bg">
+        <i class="fas fa-display"></i>
+        <span>Displays</span>
+      </button>
+
+      <button class="nav-btn" data-page="mics">
+        <img src="./assets/img/glassrectangle.png" alt="Mics Background" class="btn-bg">
+        <i class="fas fa-microphone"></i>
+        <span>Mics</span>
+      </button>
+      
+      <button class="nav-btn" data-page="camera">
+        <img src="./assets/img/glassrectangle.png" alt="Camera Background" class="btn-bg">
+        <i class="fas fa-camera"></i>
+        <span>Camera</span>
+      </button>
+      
+      <button class="nav-btn" data-page="call">
+        <img src="./assets/img/glassrectangle.png" alt="Call Background" class="btn-bg">
+        <i class="fas fa-phone"></i>
+        <span>Call</span>
+      </button>
+      
+      <button class="nav-btn" data-page="settings">
+        <img src="./assets/img/glassrectangle.png" alt="Settings Background" class="btn-bg">
+        <i class="fas fa-cog"></i>
+        <span>Settings</span>
+      </button>
+    </nav>
+  
+    <!-- Main Content Area -->
+  <main id="main-area">
+    <div id="content-wrapper">
+      <div id ="main-content" class="content-page active">
+        <div id="quick-actions">
+          <h1>Quick Actions</h1>
+          <div id="quick-actions-toggles">
+            <div class="toggle-row">
+              <span class="quick-label">All TVs</span>
+              <div id="quick-toggle-1"></div>              
+            </div>
+            <div class="divider-line"></div>
+            <div class="toggle-row">
+              <span class="quick-label">All Mics</span>
+              <div id="quick-toggle-2"></div>
+            </div> 
+            <div class="divider-line"></div>       
+            <div class="toggle-row">
+              <span class="quick-label">All Audio</span>
+              <div id="quick-toggle-3"></div>
+            </div>
+          </div>
+        </div>
+        <div id ="clock">
+          <analog-clock time-join="110" city-join="111"></analog-clock>
+        </div>
+      </div>
+
+      <div id="mics-content" class="content-page">
+        <h1>Microphones</h1>
+        <div class="square-wrapper">
+          <div class="square-grid">
+            <div class="grid-item">
+              <div class="gauge-wrapper">
+                <circular-gauge feedback-join="1" control-join="11" label-join="101"></circular-gauge>
+              </div>
+            </div>
+            <div class="grid-item">
+              <div class="gauge-wrapper">
+                <circular-gauge feedback-join="2" control-join="12" label-join="102"></circular-gauge>
+              </div>
+            </div> 
+            <div class="grid-item">
+              <div class="gauge-wrapper">
+                <circular-gauge feedback-join="3" control-join="13" label-join="103"></circular-gauge>
+              </div>
+            </div> 
+            <div class="grid-item">
+              <div class="gauge-wrapper">
+                <circular-gauge feedback-join="4" control-join="14" label-join="104"></circular-gauge>
+              </div>
+            </div> 
+            <div class="grid-item">
+              <div class="gauge-wrapper">
+                <circular-gauge feedback-join="5" control-join="15" label-join="105"></circular-gauge>
+              </div>
+            </div> 
+            <div class="grid-item">
+              <div class="gauge-wrapper">
+                <circular-gauge feedback-join="6" control-join="16" label-join="106"></circular-gauge>
+              </div>
+            </div> 
+          </div>
+        </div>
+      </div>  
+  
+    <div id="video-content" class="content-page">
+      <h1>Choose your Destination</h1> 
+        <div class="card-section">
+          <glass-carousel slides="7"></glass-carousel>
+          <toggle-switch digital-join="71" feedback-join="81"></toggle-switch>
+        </div>
+    </div>
+
+    <div id="displays-content" class="content-page">
+      <h1>TVs</h1> 
+        <div class="card-section">
+          <glass-carousel slides="7"></glass-carousel>
+        </div>
+    </div>
+  
+    <div id="camera-content" class="content-page">
+      <h1>Camera Controls</h1>
+    
+      <div class="manual-camera-pad">
+        <button class="icon-button btn-tilt-up">
+          <img src="./assets/img/Up_Arrow_White.png" alt="Tilt Up">
+        </button>
+    
+        <button class="icon-button btn-tilt-down">
+          <img src="./assets/img/Down_Arrow_White.png" alt="Tilt Down">
+        </button>
+    
+        <button class="icon-button btn-pan-left">
+          <img src="./assets/img/Left_Arrow_White.png" alt="Pan Left">
+        </button>
+    
+        <button class="icon-button btn-pan-right">
+          <img src="./assets/img/Right_Arrow_White.png" alt="Pan Right">
+        </button>
+    
+        <button class="icon-button btn-zoom-in">
+          <img src="./assets/img/Gear.png" alt="Zoom In">
+        </button>
+    
+        <button class="icon-button btn-zoom-out">
+          <img src="./assets/img/Gear_Dark.png" alt="Zoom Out">
+        </button>
+      </div>
+    </div> 
+    
+    <div id="call-content" class="content-page">
+      <h1>Video Call</h1>
+      <div class="card-section">
+        <div class="button-column">
+          <three-d-button digital-join="5" feedback-join="6">Start Call</three-d-button>
+          <radio-toggle
+            digital-join-left="11"
+            digital-join-middle="12"
+            digital-join-right="13"
+            feedback-left="21"
+            feedback-middle="22"
+            feedback-right="23"
+            text-join-left="201"
+            text-join-middle="202"
+            text-join-right="203">
+          </radio-toggle>
+
+          <button>Mute Call Audio</button>
+          <button>Unmute Call Audio</button>
+        </div>
+      </div>
+    </div>
+  
+    <div id="settings-content" class="content-page">
+      <h1>Settings Page</h1>
+      <div class="card-section">
+          <shutdown-progress analog-join="301" text-join="302"></shutdown-progress>
+          <div id="room-name">Room Name</div>
+      </div>
+    
+      <div class="card-section">
+        <circular-preloader text-join="301"></circular-preloader>
+      </div>
+  </div>
+  </div>
+  </main>
+
+    <!-- Bottom Bar -->
+    <footer id="bottom-bar">
+  
+      <div id="center-group"> <!-- New wrapper only -->
+        <div class="mute-group">
+          <button id="mute-btn" class="mute-btn">
+            <i class="fas fa-volume-mute"></i>
+          </button>        
+        </div>
+      
+        <div class="volume-group">
+          <div class="volume-controls">
+            <button id="volume-down" class="vol-btn">-</button>
+            <volume-slider analog-join="12" analog-send-event-on-release="12"></volume-slider>
+            <button id="volume-up" class="vol-btn">+</button>
+          </div>
+        </div>
+      </div>
+    
+      <div class="power-group">
+        <button id="power-btn" class="btn-power">
+          <i class="fas fa-power-off"></i>
+        </button>
+      </div>
+    
+    </footer>
+     
+    <!-- Nav Subpage Container -->
+    <div id="subpage-container">
+      <div class="subpage" id="subpage-video">
+        <h1 class="subpage-title">Select a Source</h1>
+        <div class="card-section">
+          <div class="button-column">
+            <button>Source 1</button>
+            <button>Source 2</button>
+            <button>Source 3</button>
+            <button>Source 4</button>
+            <button>Source 5</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="subpage" id="subpage-displays">
+        <h1 class="subpage-title">Select a Source</h1>
+        <div class="card-section">
+          <div class="button-column">
+            <div id="tv-toggle-1"></div>
+            <div id="tv-toggle-2"></div>
+            <div id="tv-toggle-3"></div>
+            <div id="tv-toggle-4"></div>
+            <div id="tv-toggle-5"></div>
+            <div id="tv-toggle-6"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subpage" id="subpage-mics">
+        <h1 class="subpage-title">Mute Controls</h1>
+        <div class="card-section">
+          <div class="toggle-column">
+            <div class="toggle-row">
+              <div id="mic-toggle-1"></div>
+              <span class="mic-label">Mic 1</span>
+            </div>
+            <div class="toggle-row">
+              <div id="mic-toggle-2"></div>
+                <span class="mic-label">Mic 2</span>
+            </div>
+            <div class="toggle-row">
+              <div id="mic-toggle-3"></div>
+              <span class="mic-label">Mic 3</span>
+            </div>
+            <div class="toggle-row">
+              <div id="mic-toggle-4"></div>
+              <span class="mic-label">Mic 4</span>
+            </div>
+            <div class="toggle-row">
+              <div id="mic-toggle-5"></div>
+              <span class="mic-label">Mic 5</span>
+            </div>
+            <div class="toggle-row">
+              <div id="mic-toggle-6"></div>
+                <span class="mic-label">Mic 6</span>
+            </div>
+      
+          </div>
+        </div>
+      </div>
+      
+      <div class="subpage" id="subpage-camera">
+        <h1 class="subpage-title">Presets</h1>
+        <div class="card-section">
+          <div class="button-column">
+            <div id="mute-toggle-1"></div>
+            <span class="mute-label">Preset 1</span>
+            <div id="mute-toggle-2"></div>
+            <span class="mute-label">Preset 2</span>
+            <div id="mute-toggle-3"></div>
+            <span class="mute-label">Preset 3</span>
+            <div id="mute-toggle-4"></div>
+            <span class="mute-label">Preset 4</span>
+            <div id="mute-toggle-5"></div>
+            <span class="mute-label">Preset 5</span>
+            <div id="mute-toggle-6"></div>
+            <span class="mute-label">Preset 6</span>
+          </div>
+        </div>
+      </div>
+      <div class="subpage" id="subpage-call">
+        <h1 class="subpage-title">Route to Far End</h1>
+        <div class="card-section">
+          <div class="button-column">
+            <button>Source 1</button>
+            <button>Source 2</button>
+            <button>Source 3</button>
+            <button>Source 4</button>
+            <button>Source 5</button>
+            <button>Source 6</button>
+          </div>
+        </div>
+      </div>
+      <div class="subpage" id="subpage-settings">
+        <h1 class="subpage-title">Settings</h1>
+          <div class="card-section">
+            <div class="rolling-menu-block">
+              <rolling-menu analog-join="101" analog-feedback="102" item-count-join="103" text-join-base="200"></rolling-menu>
+            </div>
+          </div>
+        </div>
+      </div>
+    <script src="toggle-square.js"></script>
+    <script src="toggle-rolling-reverse.js"></script>
+    <script src="toggle-rolling.js"></script>
+    <script src="toggle-switch.js"></script>
+    <script src="bundle.js"></script>
+
+</body>
+</html>
+

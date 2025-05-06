@@ -1,0 +1,1696 @@
+@import url('https://fonts.googleapis.com/css2?family=Muli:wght@400;700&display=swap');
+
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 15px rgb(230, 96, 96);
+  }
+  50% {
+    box-shadow: 0 0 100px rgb(230, 96, 96);
+  }
+  100% {
+    box-shadow: 0 0 15px rgb(230, 96, 96);
+  }
+}
+@keyframes pulse-glow-mic {
+  0% {
+    box-shadow: 0 0 15px rgba(4, 170, 142, 0.8);
+  }
+  50% {
+    box-shadow: 0 0 100px rgba(4, 170, 142, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 15px rgba(4, 170, 142, 0.8);
+  }
+}
+
+:root {
+  --nav-width: 215px; 
+  --subpage-width: 200px;
+  --top-bar-height: 70px;    /* Or whatever your top header height is */
+  --bottom-bar-height: 100px; /* Or whatever your bottom bar height is */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#top {
+  display: grid;
+  position: fixed;
+  grid-template-columns: 2fr 2fr 2fr;
+  align-items: center;
+  background-color: #000000;
+  z-index: 200;
+}
+
+#room-name {
+  margin-left: 2rem;
+  text-align: left;
+}
+
+#time {
+  text-align: center;
+}
+
+#date {
+  margin-right: 2rem;
+  text-align: right;
+}
+
+#quick-actions {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* stack downward, not space-evenly */
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  bottom: 5rem;
+  right: 5rem;
+  max-height: 60vh;
+  max-width: 50vh;
+  overflow: hidden; 
+  backdrop-filter: blur(5px);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 0 20px rgba(4, 170, 142, 0.8);
+  z-index: 101;
+}
+
+
+
+#quick-actions-toggles {
+  display: flex;
+  width: 80%;
+  flex-direction: column;
+  align-items: left;
+  justify-content: space-evenly;
+  gap: 1rem;
+  padding-right: 2rem;
+  flex: 1; /* grow and fill */
+  overflow-y: auto; /* scroll toggles if too many */
+}
+
+#clock {
+  position: fixed;
+  background: transparent !important; 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center; 
+  height: 100%;
+  width: 100%;
+  bottom: 5rem;
+  right: 42rem;
+  max-height: 60vh;
+  max-width: 50vh;
+  overflow: visible !important; 
+  z-index: 110; 
+  padding: 1rem;
+  overflow: visible;
+}
+
+.divider-line {
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 1.25rem;
+  padding: 0.25rem 0;
+}
+
+.divider-line::before {
+  content: "--------------------------------------";
+}
+
+body {
+  position: relative; /* make body a stacking context */
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #121212;
+  background-image: url('assets/img/Background4.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: white;
+  transition: background 0.3s, color 0.3s;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* ✅ Semi-transparent black */
+  z-index: 0; /* ✅ Behind text/buttons */
+}
+
+/* Now push your content above the overlay */
+#top, #left-nav, #main-content, #bottom-bar, #subpage-container {
+  position: relative;
+  z-index: 1;
+}
+
+h1, h2, h3, p {
+  color: #fff;
+  font-weight: 400;
+}
+
+#left-nav {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: var(--nav-width);; 
+  background-color: rgba(29, 27, 27, 0.808);
+  backdrop-filter: blur(10px);
+  box-shadow: 2px 0 6px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around; /* evenly space buttons */
+  align-items: center;
+  padding: 1rem 0;
+  z-index: 100;
+  overflow-y: auto;
+}
+
+#left-nav button {
+  position: relative;
+  display: flex;
+  flex-direction: row; 
+  align-items: center;
+  justify-content: space-between; 
+  width: 90%; /* ✅ Adjust dynamically relative to #left-nav width */
+  min-height: 5.5rem; /* ✅ Flexible height, not fixed */
+  background: transparent;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: clamp(1rem, 1.5vw, 1.5rem); /* ✅ Dynamic font-size scaling */
+  gap: 1.5rem;
+  transition: background 0.2s ease;
+  text-align: left;
+  overflow: hidden;
+  padding-left: .75rem;
+  padding-right: .75rem;
+}
+
+#left-nav button .btn-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  pointer-events: none;
+}
+
+#left-nav button i {
+  position: relative;
+  z-index: 2;
+  font-size: clamp(1.6rem, 2.5vw, 2.8rem); /* smaller icons */
+  color: rgb(4, 170, 142);
+}
+
+#left-nav button span {
+  position: relative;
+  z-index: 2;
+  font-size: clamp(1.4rem, 2vw, 2.4rem); /* smaller text */
+  color: rgb(4, 170, 142);
+}
+
+
+#left-nav button:hover {
+  background-color: rgba(102, 102, 102, 0.5);
+  box-shadow: 0 0 15px rgb(4, 170, 142);
+}
+
+#left-nav button.active {
+  background-color: rgba(102, 102, 102, 0.5);
+  box-shadow: 10px 10px 25px rgb(4, 170, 142);
+}
+
+#main-content {
+  position: absolute;
+  top: calc(var(--top-bar-height));
+  bottom: calc(var(--bottom-bar-height));
+  left: var(--nav-width);
+  right: 0;                        /* fill to right edge */
+  padding: 1rem;
+  overflow-y: auto;
+  background: rgba(18, 18, 18, 0.7); /* 70% dark */
+  backdrop-filter: blur(5px); /* optional soft blur */
+  color: white;
+
+  height: 100%; /* ensure parent allows full vertical space */
+  display: flex;
+  flex-direction: column;
+}
+
+#content-wrapper {
+  position: relative;
+  height: calc(100vh - var(--top-bar-height) - var(--bottom-bar-height));
+  width: calc(100% - var(--nav-width));
+  margin-left: var(--nav-width);          /* offset for fixed nav */
+  overflow: hidden;
+}
+
+
+.content-page {
+  position: absolute;
+  top: 0;
+  bottom: var(--bottom-bar-height);
+  left: var(--subpage-width); 
+  width: calc(100% - var(--subpage-width)); 
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(100%);
+  transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out, visibility 0.6s ease-in-out;
+  height: 100%; /* ensure parent allows full vertical space */
+  display: flex;
+  flex-direction: column;
+}
+
+.content-page.active {
+  display: flex;
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+  height: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 6px rgba(0,0,0,0.3);
+
+  transition: background-color 0.3s ease, box-shadow 0.3s, padding-left 0.4s ease;
+}
+
+.content-page.closing {
+  transform: translateX(-100%);
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 0.6s ease, opacity 0.6s ease, visibility 0.6s ease;
+}
+
+#bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: var(--nav-width); 
+  right: 0;
+  background-color: rgba(18, 18, 18, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.3);
+  border-top: 2px solid #333;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* <<< change this */
+  gap: 2rem; /* <<< add a little spacing between groups */
+  padding: 1rem 2rem;
+  z-index: 99;
+}
+
+/* Power Group */
+.power-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #333;
+  padding: 1rem;
+  border-radius: 12px;
+  gap: 1rem;
+  width: 100px;
+  height: 100px;
+  max-width: 120px;
+  flex: 0 0 auto; /* Prevent squishing */
+  margin-left: 75px; /* <-- keep if you had manual spacing */
+}
+
+.btn-power {
+  background: #555;
+  color: white;
+  border: 2px solid white; /* White outline */
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  font-size: 2rem;
+  cursor: pointer;
+  box-shadow: 0 0 7.5px rgb(230, 96, 96); /* Soft red glow */
+  transition: box-shadow 0.3s, background-color 0.3s;
+}
+
+.btn-power:hover {
+  background: #d32f2f;
+  transform: scale(0.9);
+  box-shadow: 0 0 35px rgb(230, 96, 96); /* Soft red glow */
+}
+
+#center-group {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin: 0 auto; /* <-- Centers the group itself */
+}
+
+/* Mute Group */
+.mute-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #333;
+  padding: 1rem;
+  border-radius: 12px;
+  gap: 1rem;
+  width: 100px;
+  height: 100px;
+  max-width: 120px;
+  flex: 0 0 auto; /* Prevent squishing */
+}
+
+#mute-btn {
+  background: #555;
+  color: white;
+  border: 2px solid white; /* White outline */
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  font-size: 2rem;
+  cursor: pointer;
+  box-shadow: 0 0 7.5px rgb(230, 96, 96); /* Soft red glow */
+  transition: box-shadow 0.3s, background-color 0.3s;
+}
+
+#mute-btn:hover {
+  box-shadow: 0 0 15px rgb(230, 96, 96); /* Soft red glow */
+  transform: scale(0.9);
+  background-color: #666; /* Slightly lighter on hover */
+}
+
+#mute-btn.active {
+  background: #f00606;
+  /* Soft white glow */
+  animation: pulse-glow 1.5s infinite;
+}
+
+/* Volume Group */
+.volume-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #333;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  gap: 1rem;
+  width: 100%; /* Keep flexible width */
+  max-width: 800px; /* Optional safety limit if needed */
+  height: 100%; /* Keep flexible width */
+  max-height: 200px; /* Optional safety limit if needed */
+}
+.volume-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.volume-group input[type="range"] {
+  flex: 1;
+  height: 28px;
+  background: #444;
+  border-radius: 6px;
+}
+
+.volume-group span {
+  font-size: 2.1rem;
+}
+
+.vol-btn {
+  width: 4rem;
+  height: 4rem;
+  background: #555;
+  border: 1px solid white; /* White outline */
+  border-radius: 50%;
+  color: white;
+  font-size: 3rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  box-shadow: 0 0 7.5px rgb(4, 170, 142); /* Soft green glow */
+}
+
+.vol-btn:hover {
+  box-shadow: 0 0 15px rgb(4, 170, 142); /* Soft green glow */
+  transform: scale(0.9);
+  background: #777;
+}
+
+.volume-group input[type="range"] {
+  flex: 1;
+  height: 28px;
+  background: #444;
+  border-radius: 6px;
+}
+
+.volume-group label,
+.volume-group span {
+  font-size: 2.1rem;
+}
+
+/* TSW Volume Slider Styles */
+.volume-bar {
+  width: 450px;
+  height: 28px;
+  background: linear-gradient(to right, #4CAF50 0%, #4CAF50 45%, #FFEB3B 55%, #FFEB3B 70%, #F44336 80%, #F44336 100%);
+  border-radius: 6mm;
+  box-shadow: inset -1px 2px 2px rgb(0, 0, 0), 1px 1px 1px rgb(120, 120, 120);
+  position: relative;
+  overflow: visible;
+  cursor: pointer;
+}
+
+.volume-fill {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: auto;
+  right: 0;
+  width: 100%;
+  background: rgb(42, 42, 42);
+  z-index: 1;
+  transition: none;
+  border-radius: 6mm;
+}
+
+.volume-knob {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(4, 170, 142, 0.8);
+  cursor: pointer;
+  z-index: 10;
+}
+
+.volume-knob:active {
+  box-shadow: 0 0 15px rgba(4, 170, 93, 0.9);
+}
+
+.volume-percent {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 8px;
+  font-size: 24px;
+  font-family: "Segoe UI";
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.2);
+}
+/* TSW Volume Slider Styles */
+
+/* TSW Circular Gauge Styles */
+
+.circular-wrapper {
+  display: block;
+  width: 300px;
+  user-select: none;
+}
+
+.circular-slider {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  filter: drop-shadow(0 0 8px rgba(4, 170, 142, 0.8));
+}
+
+.circular-gauge-container {
+  width: 100%;
+  position: relative;
+}
+
+.circular-knob-hitbox {
+  background: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.circular-knob {
+  width: 73%;
+  height: 73%;
+  position: absolute;
+  background: rgb(94 143 135);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 0 2px rgba(4, 170, 142, 0.8));
+}
+
+.circular-knob:hover {
+  box-shadow: 0 0 25px rgba(238, 6, 6, 0.6);
+}
+
+.circular-rotator {
+  width: 82%;
+  height: 82%;
+  background: rgba(11,127,107,0.8);
+  border-radius: 50%;
+  box-shadow: inset 1px 2px 1px white,
+              2px -1px 1px rgba(0, 0, 0, 0.2),
+              -1px 0px 1px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 0 8px rgba(4, 170, 142, 0.8));
+}
+
+.circular-text {
+  font-size: 1em;
+  font-weight: 600;
+  color: white;
+  border: 0.15em solid white;
+  border-radius: 50%;
+  width: 35%;
+  height: 35%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circular-label {
+  text-align: center;
+  color: white;
+  font-size: 1.5rem;
+  font-family: 'Poppins', sans-serif;
+  padding: 0px 0;
+  width: 100%;
+  min-height: 20px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  position: relative;
+  overflow: visible;
+}
+
+.circular-progress-bar circle:nth-child(1),
+.circular-progress-bar circle:nth-child(2) {
+  fill: none; /* ✅ THIS removes black fill */
+  stroke-width: 15px;
+  stroke-dasharray: 660;
+  transform: rotate(135deg);
+  transform-origin: center;
+  stroke-linecap: round;
+}
+.circular-progress-bar circle:nth-child(1) {
+  stroke: rgba(255, 255, 255, 0.527); /* dim visible gauge track */
+}
+
+.circular-progress-bar circle:nth-child(2) {
+  stroke: url(#gradient);
+  stroke-dashoffset: 880;
+}
+
+.circular-progress-bar circle:nth-child(2) {
+  stroke: url(#gradient);
+  stroke-width: 15px;
+  stroke-dasharray: 880;
+  stroke-dashoffset: 880;
+  transform: rotate(135deg);
+  transform-origin: center;
+  stroke-linecap: round;
+}
+
+/* TSW Circular Gauge Styles */
+
+/*Radio Toggle Styles*/
+.radio-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  padding: 2px;
+  background: rgba(240, 240, 240, 0.1);
+  border-radius: 6px;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+}
+
+.radio-toggle input[type="radio"] {
+  display: none;
+}
+
+.radio-toggle label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 40px;
+  cursor: pointer;
+  font-weight: 500;
+  color: white;
+  font-size: 0.9rem;
+  z-index: 2;
+  position: relative;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+  text-shadow: none;
+}
+
+.radio-toggle input[type="radio"]:checked + label {
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.9);
+}
+
+.radio-toggle .slider {
+  position: absolute;
+  top: 2px;
+  height: 40px;
+  width: 100px;
+  background: rgb(4, 170, 142);
+  border-radius: 6px;
+  transition: left 0.25s ease-in-out, background-color 0.25s;
+  box-shadow: 0 0 15px rgb(4, 170, 142);
+  z-index: 1;
+  animation: pulse-glow-mic 1.5s infinite;
+}
+
+
+.radio-toggle input[id^="radio-left"]:checked ~ .slider {
+  left: 2px;
+}
+.radio-toggle input[id^="radio-middle"]:checked ~ .slider {
+  left: 104px;
+}
+.radio-toggle input[id^="radio-right"]:checked ~ .slider {
+  left: 206px;
+}
+/* Radio Toggle Style*/
+
+/* Circular Text Style */
+.circular-preloader-container .center {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.circular-preloader-container .circle {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+  animation: rotate 10s ease-in-out infinite var(--delay);
+}
+
+.circular-preloader-container .letter {
+  position: absolute;
+  display: block;
+  font-size: 50px;
+  font-family: Poppins, sans-serif;
+  font-weight: 900;
+  color: white;
+  text-shadow: 1px 1px 0 rgb(80, 80, 80);
+}
+
+@keyframes rotate {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(180deg); }
+}
+.circular-preloader-container .circle:nth-child(1) .letter {
+  color: white;
+  font-size: 50px;
+  text-shadow: 1px 1px 0 black, 2px 2px 0 black, 2px 3px 0 black, 2px 4px 0 black, 2px 5px 0 black;
+}
+.circular-preloader-container .circle:nth-child(2) .letter {
+  color: #cccccc;
+  font-size: 47px;
+}
+.circular-preloader-container .circle:nth-child(3) .letter {
+  color: #999999;
+  font-size: 44px;
+}
+.circular-preloader-container .circle:nth-child(4) .letter {
+  color: #666666;
+  font-size: 41px;
+}
+.circular-preloader-container .circle:nth-child(5) .letter {
+  color: #333333;
+  font-size: 38px;
+}
+.circular-preloader-container .circle:nth-child(6) .letter {
+  color: black;
+  font-size: 35px;
+  text-shadow: none;
+}
+
+/* Circular Text Style */
+/* Rolling Menu Style */
+.rolling-menu-container .center {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  position: relative;
+  z-index: 2;
+}
+
+.rolling-menu-container .menu {
+  width: 350px; /* FIX: match original hardcoded size */
+  height: 350px;
+  background: transparent;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.rolling-menu-container .items {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.rolling-menu-container .item {
+  display: block;
+  position: absolute;
+  top: calc(50% - 20px);
+  width: 100%;
+  height: 40px;
+  font-size: 24px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  color: white;
+  text-align: center;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transition: 0.2s; /* FIX: matches HTML behavior */
+  opacity: 0.5;
+  text-shadow: none;
+}
+
+.rolling-menu-container .item.active {
+  text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white;
+  opacity: 1;
+  z-index: 10;
+}
+/* Rolling Menu Style */
+
+.btn-circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: rgba(15, 1, 1, 0.308);
+  background: #2a2a2a;
+  color: white;
+  font-size: 4.5rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn-circle:hover {
+  background: #666;
+}
+
+.btn-circle.active {
+  background-color: #ee0909;
+}
+
+.volume-group input[type="range"] {
+  width: 500px;
+  accent-color: #4CAF50;
+}
+
+#subpage-container {
+  position: fixed;
+  top: 0;
+  bottom: calc(var(--bottom-bar-height));
+  left: var(--nav-width);
+  width: var(--subpage-width);
+  overflow-x: hidden;
+  overflow-y: hidden; /* Prevent vertical scroll */
+  white-space: nowrap;
+  transition: width 0.6s ease; /* <<< keep smooth width expansion */
+  z-index: 50;
+  background-color: #111;
+}
+
+.subpage {
+  display: flex;
+  width: var(--subpage-width); /* <<< match nav width */
+  max-height: 100%;
+  height: 100%;
+  bottom: calc(var(--bottom-bar-height));
+  color: white;
+  padding: 1rem;
+  overflow-y: auto;
+  vertical-align: top;
+  background-color: rgba(30, 30, 30, 0.7);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+  justify-content: center;
+  transform: translateX(-50%) scale(0.95); /* <<< slightly smaller + offset */
+  opacity: 0;
+  
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.subpage.active {
+  transform: translateX(0) scale(1); /* <<< slide fully in + grow to full size */
+  opacity: 1;
+  text-align: center;
+}
+
+.subpage-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #555;
+  padding-bottom: 0.5rem;
+}
+
+.card-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 90%;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 6px rgba(0,0,0,0.3);
+  transition: background-color 0.3s ease, box-shadow 0.3s;
+}
+.rolling-menu-block {
+  display: block;
+  height: 100px;
+  width: 100%;
+}
+
+.button-column {
+  flex: 1;                    /* Take up full height in .card-section */
+  justify-content: space-evenly;  /* Even vertical spacing */
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-size: clamp(1.6rem, 2.5vw, 2.8rem); /* smaller icons */
+  color: rgb(4, 170, 142); 
+}
+
+.button-column button {
+  background: #2a2a2a;
+  border: none;
+  padding: 0.75rem 0.75rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  font-size: clamp(1.4rem, 2vw, 2.4rem); /* smaller text */
+  color: rgb(4, 170, 142);
+  background-color: rgba(102, 102, 102, 0.5);
+  box-shadow: 0 0 10px rgb(4, 170, 142);
+}
+
+.button-column button:active {
+  background: #2a2a2a;
+  border: none;
+  padding: 0.75rem 0.75rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  font-size: clamp(1.4rem, 2vw, 2.4rem); /* smaller text */
+  color: rgb(4, 170, 93);
+  background-color: rgba(102, 102, 102, 0.5);
+  box-shadow: 0 0 25px rgb(4, 170, 93);
+}
+
+.button-column button:hover {
+  background: #444;
+  color: rgb(142, 168, 164);
+  box-shadow: 0 0 25px rgb(4, 170, 93);
+}
+
+.button-row {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.button-row button {
+  background: #2a2a2a;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.button-row button:hover {
+  background: #444;
+}
+
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns for camera controls */
+  gap: 1.5rem;
+  justify-items: center;
+  align-items: center;
+}
+
+.icon-button {
+  all: unset;   /* Reset everything browser-default */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.icon-button img {
+  width: 150px;
+  height: 150px;
+  display: block;
+  pointer-events: none;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.icon-button:hover img {
+  transform: scale(0.8);
+  filter: brightness(1.2);
+}
+.square-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* ← important: prevents vertical cut-off */
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;  /* ← allows scroll if bottom is clipped */
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.square-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* or whatever column count you want */
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 800px) {
+  .square-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .square-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+.grid-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #2a2a2a3b;
+  border-radius: 12px;
+  padding: 0rem;
+}
+
+
+.manual-camera-pad {
+  width: min(80%, 700px);
+  aspect-ratio: 1/1; /* Force 1:1 width-to-height ratio */
+  position: relative;
+  margin: 2rem auto;
+  background: transparent;
+}
+
+/* General style for each manual button */
+.manual-camera-pad button {
+  position: absolute;
+  aspect-ratio: 1/1; /* Perfect square button shapes */  
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
+  height: 20%;
+}
+
+/* Image inside the button scales */
+.manual-camera-pad button img {
+  width: 60%;   /* icon is 60% of button width */
+  height: 60%;
+  transition: transform 0.2s ease, filter 0.2s ease;
+  filter: drop-shadow(0 0 8px rgba(4, 170, 142, 0.8));
+}
+
+.manual-camera-pad button:hover img {
+  transform: scale(0.8);
+  filter: drop-shadow(0 0 25px rgba(194, 238, 231, 0.8)) brightness(1.5);
+}
+
+/* Position each button manually */
+.btn-tilt-up {
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.btn-tilt-down {
+  bottom: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.btn-pan-left {
+  top: 30%;
+  left: 30%;
+  transform: translateX(-50%);
+}
+
+.btn-pan-right {
+  top: 30%;
+  right: 10%;
+  transform: translateX(-50%);
+}
+
+.btn-zoom-in {
+  bottom: 5%;
+  left: 30%;
+}
+
+.btn-zoom-out {
+  bottom: 5%;
+  right: 30%;
+}
+
+.switch {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  width: auto;
+  font-size: 1.5rem;
+  color: rgb(4, 170, 142);
+  cursor: pointer;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+/* Square Toggle Style */
+
+.slider-square {
+  position: relative;
+  width: 60px;
+  height: 34px;
+  background-color: #888;
+  border-radius: 5px;
+  transition: 0.4s;
+  box-shadow: 0 2px 5px rgb(4, 170, 142);
+}
+
+.slider-square::before {
+  content: "";
+  position: absolute;
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 0%;
+  transform: rotate(-90deg);
+}
+
+.slider-square:hover {
+  background-color: #aaa; /* Slightly lighter on hover */
+  box-shadow: 0 0 25px rgb(4, 170, 93);
+}
+/* When checked, move the slider and change color */
+.switch input:checked + .slider {
+  box-shadow: 0 0 25px rgb(4, 170, 93);
+  background-color: rgb(4, 170, 142);; /* Change slider color */
+  animation: pulse-glow-mic 1.5s infinite;
+}
+.switch input:checked + .slider-square {
+  box-shadow: 0 0 25px rgb(4, 170, 93);
+  background-color: rgb(4, 170, 142);; /* Change slider color */
+  animation: pulse-glow-mic 1.5s infinite;
+}
+.switch input:checked ~ .mic-label {
+  color: rgb(4, 170, 142); /* Change Mic label text color */
+  text-shadow: 0 0 25px rgb(4, 170, 93);
+}
+.switch input:checked ~ .quick-label {
+  color: rgb(4, 170, 142); /* Change quick label text color */
+  text-shadow: 0 0 25px rgb(4, 170, 93);
+}
+
+.switch input:checked + .slider::before {
+  transform: translateX(26px);
+}
+.switch input:checked + .slider-square::before {
+  transform: translateX(26px) rotate(0deg);
+}
+/* Square Toggle Style */
+
+/* Oval Toggle Style */
+.switch-oval {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.5rem;
+  color: rgb(4, 170, 142);
+  cursor: pointer;
+}
+
+.switch-oval input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider-oval {
+  position: relative;
+  width: 70px;
+  height: 34px;
+  background-color: #888;
+  border-radius: 25px;
+  transition: 0.4s;
+  box-shadow: 0 2px 5px rgb(4, 170, 142);
+}
+
+.slider-oval::before {
+  content: "";
+  position: absolute;
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+.slider-oval:hover {
+  background-color: #aaa;
+  box-shadow: 0 0 25px rgb(4, 170, 93);
+}
+
+.switch-oval input:checked + .slider-oval {
+  background-color: rgb(4, 170, 142);
+  box-shadow: 0 0 25px rgb(4, 170, 93);
+  animation: pulse-glow-mic 1.5s infinite;
+}
+
+.switch-oval input:checked + .slider-oval::before {
+  transform: translateX(36px);
+}
+/* Oval Toggle Style */
+
+/* Toggle Rolling Style */
+.toggle-rolling {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toggle-rolling input[type="checkbox"] {
+  display: none;
+}
+
+.toggle-rolling label {
+  display: block;
+  width: 100px;
+  height: 50px;
+  background: rgb(122, 118, 118);
+  border-radius: 30mm;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0 0 10px 1px rgba(236, 8, 8, 0.5);
+}
+
+.toggle-rolling .thumb {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  background: rgb(51, 32, 32);
+  top: 3px;
+  left: 3px;
+  border-radius: 50%;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2),
+              3px 3px 0 rgba(100, 100, 100, 0.2);
+  overflow: hidden;
+  transition: 0.5s ease-in;
+}
+
+.toggle-rolling .rotator {
+  display: flex;
+  width: 200%;
+  height: 100%;
+  align-items: center;
+  transition: 0.5s ease-in;
+}
+
+.toggle-rolling .side {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toggle-rolling input:checked + label .thumb {
+  left: calc(100% - 47px);
+}
+
+.toggle-rolling input:checked + label .thumb .rotator {
+  transform: translateX(-50%);
+  background: rgb(9, 119, 101);
+}
+
+.toggle-rolling input:checked + label .thumb .rotator .side {
+  transform: rotate(180deg);
+}
+
+.toggle-rolling input:checked + label {
+  box-shadow: 0 0 15px 3px rgb(4, 170, 142);
+  animation: pulse-glow 1.5s infinite;
+}
+
+/* Toggle Rolling Style */
+
+/* Toggle Rolling Reverse Style */
+
+.toggle-rolling-reverse {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toggle-rolling-reverse input[type="checkbox"] {
+  display: none;
+}
+
+.toggle-rolling-reverse label {
+  display: block;
+  width: 100px;
+  height: 50px;
+  background: rgb(122, 118, 118);
+  border-radius: 30mm;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0 0 10px 1px rgb(4, 170, 142);
+}
+
+.toggle-rolling-reverse .thumb {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  background: rgb(32, 51, 50);
+  top: 3px;
+  left: 3px;
+  border-radius: 50%;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2),
+              3px 3px 0 rgba(100, 100, 100, 0.2);
+  overflow: hidden;
+  transition: 0.5s ease-in;
+}
+
+.toggle-rolling-reverse .rotator {
+  display: flex;
+  width: 200%;
+  height: 100%;
+  align-items: center;
+  transition: 0.5s ease-in;
+}
+
+.toggle-rolling-reverse .side {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toggle-rolling-reverse input:checked + label .thumb {
+  left: calc(100% - 47px);
+}
+
+.toggle-rolling-reverse input:checked + label .thumb .rotator {
+  transform: translateX(-50%);
+  background: rgba(236, 8, 8, 0.5);
+}
+
+.toggle-rolling-reverse input:checked + label .thumb .rotator .side {
+  transform: rotate(180deg);
+}
+
+.toggle-rolling-reverse input:checked + label {
+  box-shadow: 0 0 15px 3px rgba(236, 8, 8, 0.5);
+  animation: pulse-glow 1.5s infinite;
+}
+
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 15px rgba(236, 8, 8, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 100px rgba(236, 8, 8, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 15px rgba(236, 8, 8, 0.5);
+  }
+}
+
+/* Toggle Rolling Reverse Style */
+
+/* Toggle Switch Style */
+
+
+.tsw-toggle-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input[type='checkbox'] {
+  display: none;
+}
+
+.tsw-toggle-switch {
+  width: fit-content;
+  padding: 5px;
+  background: transparent;
+  border-radius: 2mm;
+  display: flex;
+  perspective: 300px;
+  position: relative;
+}
+
+.tsw-toggle-mode {
+  width: 100px;
+  height: 60px;
+  background: linear-gradient(rgb(245, 244, 246), rgb(204, 201, 202));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.25s transform;
+}
+
+.tsw-toggle-mode:nth-child(1) {
+  border-radius: 2mm 0 0 2mm;
+  transform-origin: right;
+}
+
+.tsw-toggle-mode:nth-child(2) {
+  border-radius: 0 2mm 2mm 0;
+  transform-origin: left;
+}
+
+.tsw-toggle-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 27px;
+  font-weight: 800;
+  color: transparent;
+  background-color: green; /* default = inactive */
+  background-clip: text;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
+  transition: background-color 0.2s ease;
+}
+
+/* When OFF is active */
+input[type='checkbox']:not(:checked) + .tsw-toggle-switch .tsw-toggle-mode:nth-child(1) .tsw-toggle-text {
+  background-color: red;   /* OFF active */
+}
+
+input[type='checkbox']:not(:checked) + .tsw-toggle-switch .tsw-toggle-mode:nth-child(2) .tsw-toggle-text {
+  background-color: green; /* ON inactive */
+}
+
+/* When ON is active */
+input[type='checkbox']:checked + .tsw-toggle-switch .tsw-toggle-mode:nth-child(2) .tsw-toggle-text {
+  background-color: red;   /* ON active */
+}
+
+input[type='checkbox']:checked + .tsw-toggle-switch .tsw-toggle-mode:nth-child(1) .tsw-toggle-text {
+  background-color: green; /* OFF inactive */
+}
+
+input[type='checkbox']:not(:checked) + .tsw-toggle-switch .tsw-toggle-mode:nth-child(1) {
+  transform: rotateY(50deg);
+  background: rgb(238, 237, 239);
+  box-shadow: -10px 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+input[type='checkbox']:checked + .tsw-toggle-switch .tsw-toggle-mode:nth-child(2) {
+  transform: rotateY(-50deg);
+  background: rgb(238, 237, 239);
+  box-shadow: 10px 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.tsw-toggle-indicator {
+  position: absolute;
+  height: 52px;
+  width: 0;
+  background: linear-gradient(to right, rgb(153, 152, 153), rgb(84, 83, 84));
+  top: 50%;
+  z-index: -1;
+  transition: 0.25s;
+}
+
+.tsw-toggle-indicator.tsw-toggle-left {
+  left: 5px;
+  transform: translate(0, -50%) rotateY(-65deg);
+  transform-origin: left;
+}
+
+.tsw-toggle-indicator.tsw-toggle-right {
+  right: 5px;
+  transform: translate(0, -50%) rotateY(65deg);
+  transform-origin: right;
+}
+
+input[type='checkbox']:not(:checked) + .tsw-toggle-switch .tsw-toggle-indicator.tsw-toggle-left {
+  width: 95px;
+}
+
+input[type='checkbox']:checked + .tsw-toggle-switch .tsw-toggle-indicator.tsw-toggle-right {
+  width: 95px;
+}
+
+/* Toggle Switch Style */
+
+.toggle-column {
+  flex: 1;         /* Take up full height in .card-section */
+  justify-content: space-evenly;  /* Even vertical spacing */
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.toggle-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+}
+
+.toggle-column switch:hover {
+  background: #444;
+  color: rgb(142, 168, 164);
+  box-shadow: 0 0 25px rgb(4, 170, 93);
+}
+
+.mic-label {
+  font-size: 1.5rem;
+  color: white;
+  transition: color 0.3s ease; /* Smooth color change */
+}
+
+.mute-label {
+  font-size: 1.5rem;
+  color: white;
+  transition: color 0.3s ease; /* Smooth color change */
+}
+
+.quick-label {
+  text-align: left;
+  font-size: 1.5rem;
+  color: white;
+  flex: 1;
+  transition: color 0.3s ease; /* Smooth color change */
+}
+
+.slider-row {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  scroll-snap-type: x mandatory;
+}
+
+.slider-row input[type="range"] {
+  min-width: 200px;
+  accent-color: #4CAF50;
+  scroll-snap-align: start;
+  height: 16px;
+  background: #333;
+  border-radius: 3px;
+}
+
+.gauge-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.gauge-wrapper circular-gauge {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+
+.gauge {
+  width: 220px;
+  height: 220px;
+  background: rgba(200, 200, 200, 0.1);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gauge-rotator {
+  width: 180px;
+  height: 180px;
+  background: #121212;
+  border-radius: 50%;
+  box-shadow: inset 2px 2px 5px rgba(255,255,255,0.1), 2px 2px 10px rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.gauge-value-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8rem;
+  color: white;
+}
+
+.gauge-pointer {
+  width: 20px;
+  height: 20px;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: rotate(0deg) translate(100px, 0); /* Start at 0 degrees, 100px out */
+  transform-origin: center center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gauge-pointer span {
+  font-size: 40px;
+  color: white;
+  transform: rotate(180deg); /* Static reverse so the arrow points outward */
+}
+
+.gauge-svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.gauge-bg {
+  fill: none;
+  stroke: rgba(0, 0, 0, 0.4);
+  stroke-width: 15px;
+  transform: rotate(135deg);
+  transform-origin: center;
+}
+
+.gauge-fg {
+  fill: none;
+  stroke: url(#gauge-gradient);
+  stroke-width: 20;
+  stroke-linecap: round;
+  transform: rotate(-135deg); /* important! */
+  transform-origin: center;
+}
+
+.pointer {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: calc(50% - 10px);
+  left: 0;
+  transform-origin: 110px 10px;
+  transform: rotate(-135deg); /* start at far left (0%) */  
+}
+
