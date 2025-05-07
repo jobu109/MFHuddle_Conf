@@ -43,6 +43,8 @@ module.exports = {
         { from: 'src/radio-toggle.js', to: 'radio-toggle.js' },
         { from: 'src/circular-preloader.js', to: 'circular-preloader.js' },
         { from: 'src/rolling-menu.js', to: 'rolling-menu.js' },
+        { from: 'src/shutdown-progress.js', to: 'shutdown-progress.js' },
+        { from: 'src/analog-clock.js', to: 'analog-clock.js' },
       ]      
     })
   ],

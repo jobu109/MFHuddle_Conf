@@ -712,6 +712,138 @@ h1, h2, h3, p {
 }
 /* Radio Toggle Style*/
 
+/* Analog Clock Style */
+.tsw-clock-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tsw-clock-city {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.tsw-clock-face {
+  width: 300px;
+  aspect-ratio: 1 / 1;
+  position: relative;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(4, 170, 142, 0.25) 0%, rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0.9) 100%);
+  box-shadow: 0 0 60px 15px rgba(4, 170, 142, 0.4);
+}
+
+.tsw-clock-glow {
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(4, 170, 142, 0.3), transparent 70%);
+  box-shadow: 0 0 40px 3px rgba(4, 170, 142, 0.6);
+  z-index: 0;
+}
+
+.tsw-clock-point {
+  width: 1px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.7);
+  position: absolute;
+  top: calc(50% - 6px);
+  left: calc(50% - 0.5px);
+}
+
+.tsw-clock-point.big {
+  height: 14px;
+  background: white;
+  top: calc(50% - 7px);
+}
+
+.tsw-clock-point.big .text {
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  position: absolute;
+  top: 100%;
+  font-size: 20px;
+  font-weight: 600;
+  width: 40px;
+  text-align: center;
+  left: calc(50% - 20px);
+}
+
+.tsw-clock-seconds,
+.tsw-clock-minutes,
+.tsw-clock-hours {
+  width: 2px;
+  position: absolute;
+  top: 50%;
+  left: calc(50% - 1px);
+  transform-origin: 1px 0;
+}
+
+.tsw-clock-seconds {
+  height: 182px;
+  background: orange;
+  transform-origin: 1px 26px;
+  top: calc(50% - 26px);
+}
+
+.tsw-clock-minutes,
+.tsw-clock-hours {
+  background: white;
+}
+
+.tsw-clock-hours {
+  height: 110px;
+}
+
+.tsw-clock-minutes {
+  height: 155px;
+}
+
+.tsw-clock-minutes::before,
+.tsw-clock-hours::before {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 12px;
+  height: calc(100% - 22px);
+  background: white;
+  border-radius: 2mm;
+}
+
+.tsw-clock-pivot {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: black;
+  border: 3px solid white;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.tsw-clock-pivot::before {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border: 3px solid orange;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+/* Analog Clock Style */
+
 /* Circular Text Style */
 .circular-preloader-container .center {
   width: 100%;
@@ -1144,6 +1276,187 @@ h1, h2, h3, p {
   width: 0;
   height: 0;
 }
+/* Circular Gauge Style*/
+.circular-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  user-select: none;
+}
+
+.circular-slider {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  filter: drop-shadow(0 0 8px rgba(4, 170, 142, 0.8));
+}
+
+.circular-gauge-container {
+  width: 100%;
+  position: relative;
+}
+
+.circular-knob-hitbox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.circular-knob {
+  width: 73%;
+  height: 73%;
+  position: absolute;
+  background: rgb(94 143 135);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 0 2px rgba(4, 170, 142, 0.8));
+}
+
+.circular-knob:hover {
+  box-shadow: 0 0 25px rgba(238, 6, 6, 0.6);
+}
+
+.circular-rotator {
+  width: 82%;
+  height: 82%;
+  background: rgba(11,127,107,0.8);
+  border-radius: 50%;
+  box-shadow: inset 1px 2px 1px white,
+              2px -1px 1px rgba(0, 0, 0, 0.2),
+              -1px 0px 1px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 0 8px rgba(4, 170, 142, 0.8));
+}
+
+.circular-text {
+  font-size: 1em;
+  font-weight: 600;
+  color: white;
+  border: 0.15em solid white;
+  border-radius: 50%;
+  width: 35%;
+  height: 35%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circular-label {
+  text-align: center;
+  color: white;
+  font-size: 1.5rem;
+  font-family: 'Poppins', sans-serif;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  min-height: 20px;
+}
+
+.circular-progress-bar circle:nth-child(1) {
+  stroke: #aaa;
+  stroke-width: 15px;
+  stroke-dasharray: 660;
+  transform: rotate(135deg);
+  transform-origin: center;
+  stroke-linecap: round;
+  fill: none;
+}
+
+.circular-progress-bar circle:nth-child(2) {
+  stroke: url(#gradient);
+  stroke-width: 15px;
+  stroke-dasharray: 880;
+  stroke-dashoffset: 880;
+  transform: rotate(135deg);
+  transform-origin: center;
+  stroke-linecap: round;
+  fill: none;
+}
+/* Circular Gauge STyle*/
+
+/* Shutdown Wrapper */
+.tsw-shutdown-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.tsw-shutdown-center {
+  width: 100%;
+  max-width: 600px;
+}
+
+.tsw-shutdown-box {
+  background: #1c1c1c;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 0 25px rgba(4, 170, 142, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.tsw-shutdown-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tsw-shutdown-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: white;
+}
+
+.tsw-shutdown-details {
+  font-size: 1.4rem;
+  color: white;
+}
+
+.tsw-shutdown-percentage {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: rgb(4, 170, 142);
+}
+
+.tsw-shutdown-progress {
+  background: #444;
+  height: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.tsw-shutdown-fill {
+  background: linear-gradient(to right, #04aa8e, #03c383);
+  height: 100%;
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+.tsw-shutdown-note {
+  color: #ccc;
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* Shutdown Wrapper */
 /* Square Toggle Style */
 
 .slider-square {

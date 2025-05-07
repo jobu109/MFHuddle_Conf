@@ -1,28 +1,21 @@
 import { getWebXPanel, runsInContainerApp } from "@crestron/ch5-webxpanel";
 import { CrComLib } from '@crestron/ch5-crcomlib/build_bundles/cjs/cr-com-lib';
+
 import moment from 'moment';
-import './components/circular-gauge.js';
-import './components/3d-button.js';
-import './components/volume-slider.js';
-import './components/analog-clock.js';
-import './components/rolling-menu.js';
-import './components/radio-toggle.js';
-import './components/circular-preloader.js';
-import './components/shutdown-progress.js';
+
 import './components/glass-carousel.js';
 const { WebXPanel, isActive, WebXPanelConfigParams, WebXPanelEvents, getVersion, getBuildDate } = getWebXPanel(!runsInContainerApp());
 
 window.CrComLib = CrComLib;
 
 const configuration = {
-    host: "192.168.1.197",
-    ipId: "0x05",
-    port: 49200,
-    roomId: "2",
-    tokenSource: "",
-    tokenUrl: "",
-    authToken: "",
-    contractName: ""
+  host: "192.168.1.197",
+  ipId: "0x05",
+  port: 49200,
+  roomId: "2",
+  tokenSource: "",
+  tokenUrl: "",
+  authToken: ""
 }
 
 if (isActive) {
@@ -64,6 +57,73 @@ window.addEventListener("DOMContentLoaded", () => {
   createToggleSwitch(document.getElementById('tv-toggle-4'), '84', '94');
   createToggleSwitch(document.getElementById('tv-toggle-5'), '85', '95');
   createToggleSwitch(document.getElementById('tv-toggle-6'), '86', '96');
+  createVolumeSlider(document.getElementById('volumeslider1'), '13', '12');
+  createCircularGauge(document.getElementById('gauge-mic-1'), '121', '131', '121');
+  createCircularGauge(document.getElementById('gauge-mic-2'), '122', '132', '122');
+  createCircularGauge(document.getElementById('gauge-mic-3'), '123', '133', '123');
+  createCircularGauge(document.getElementById('gauge-mic-4'), '124', '134', '124');
+  createShutdownProgress(document.getElementById('shutdown-progress'), '301', '302');
+  createCircularPreloader(document.getElementById('circular-preloader'),201,'Please Wait.......');  
+  createRollingMenu(document.getElementById('rolling-menu-1'), {
+    analogJoin: 501,         // join that controls selected item
+    feedbackJoin: 502,       // join to send back selected index
+    itemCountJoin: 503,      // join for item count
+    baseTextJoin: '510'      // starting join for item labels (e.g. 510, 511, ...)
+  });
+  
+  createRadioToggle(document.getElementById('radio-toggle1'), {
+    groupId: 'grp1',
+    buttons: [
+      {
+        label: 'Button 1',
+        digitalJoin: 101,
+        feedbackJoin: 111,
+        textJoin: 101,
+      },
+      {
+        label: 'Button 2',
+        digitalJoin: 102,
+        feedbackJoin: 112,
+        textJoin: 102,
+      },
+      {
+        label: 'Button 3',
+        digitalJoin: 103,
+        feedbackJoin: 113,
+        textJoin: 103,
+      },
+    ],
+  });
+  createRadioToggle(document.getElementById('radio-toggle2'), {
+    groupId: 'grp2',
+    buttons: [
+      {
+        label: 'Button 1',
+        digitalJoin: 101,
+        feedbackJoin: 111,
+        textJoin: 101,
+      },
+      {
+        label: 'Button 2',
+        digitalJoin: 102,
+        feedbackJoin: 112,
+        textJoin: 102,
+      },
+      {
+        label: 'Button 3',
+        digitalJoin: 103,
+        feedbackJoin: 113,
+        textJoin: 103,
+      },
+      {
+        label: 'Button 4',
+        digitalJoin: 104,
+        feedbackJoin: 114,
+        textJoin: 104,
+      },
+    ],
+  });
+
 });
 
 function initializeCrComLibEvents() {

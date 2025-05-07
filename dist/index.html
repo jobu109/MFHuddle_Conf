@@ -94,7 +94,7 @@
           </div>
         </div>
         <div id ="clock">
-          <analog-clock time-join="110" city-join="111"></analog-clock>
+          <div id="analog-clock"></div>
         </div>
       </div>
 
@@ -104,32 +104,22 @@
           <div class="square-grid">
             <div class="grid-item">
               <div class="gauge-wrapper">
-                <circular-gauge feedback-join="1" control-join="11" label-join="101"></circular-gauge>
+                <div id="gauge-mic-1"></div>
               </div>
             </div>
             <div class="grid-item">
               <div class="gauge-wrapper">
-                <circular-gauge feedback-join="2" control-join="12" label-join="102"></circular-gauge>
+                <div id="gauge-mic-2"></div>
               </div>
             </div> 
             <div class="grid-item">
               <div class="gauge-wrapper">
-                <circular-gauge feedback-join="3" control-join="13" label-join="103"></circular-gauge>
+                <div id="gauge-mic-3"></div>
               </div>
             </div> 
             <div class="grid-item">
               <div class="gauge-wrapper">
-                <circular-gauge feedback-join="4" control-join="14" label-join="104"></circular-gauge>
-              </div>
-            </div> 
-            <div class="grid-item">
-              <div class="gauge-wrapper">
-                <circular-gauge feedback-join="5" control-join="15" label-join="105"></circular-gauge>
-              </div>
-            </div> 
-            <div class="grid-item">
-              <div class="gauge-wrapper">
-                <circular-gauge feedback-join="6" control-join="16" label-join="106"></circular-gauge>
+                <div id="gauge-mic-4"></div>
               </div>
             </div> 
           </div>
@@ -185,20 +175,8 @@
       <h1>Video Call</h1>
       <div class="card-section">
         <div class="button-column">
-          <three-d-button digital-join="5" feedback-join="6">Start Call</three-d-button>
-          <radio-toggle
-            digital-join-left="11"
-            digital-join-middle="12"
-            digital-join-right="13"
-            feedback-left="21"
-            feedback-middle="22"
-            feedback-right="23"
-            text-join-left="201"
-            text-join-middle="202"
-            text-join-right="203">
-          </radio-toggle>
-
-          <button>Mute Call Audio</button>
+          <div id="radio-toggle1"></div>
+          <div id="radio-toggle2"></div>
           <button>Unmute Call Audio</button>
         </div>
       </div>
@@ -207,11 +185,12 @@
     <div id="settings-content" class="content-page">
       <h1>Settings Page</h1>
       <div class="card-section">
+          <div id="shutdown-progress"></div>
           <div id="room-name">Room Name</div>
       </div>
     
       <div class="card-section">
-        <circular-preloader text-join="301"></circular-preloader>
+        <div id="circular-preloader"></div>
       </div>
   </div>
   </div>
@@ -230,7 +209,7 @@
         <div class="volume-group">
           <div class="volume-controls">
             <button id="volume-down" class="vol-btn">-</button>
-            <volume-slider analog-join="12" analog-send-event-on-release="12"></volume-slider>
+              <div id="volumeslider1"></div>
             <button id="volume-up" class="vol-btn">+</button>
           </div>
         </div>
@@ -342,7 +321,7 @@
         <h1 class="subpage-title">Settings</h1>
           <div class="card-section">
             <div class="rolling-menu-block">
-              <rolling-menu analog-join="101" analog-feedback="102" item-count-join="103" text-join-base="200"></rolling-menu>
+              <div id="rolling-menu-1"></div>
             </div>
           </div>
         </div>
@@ -351,6 +330,13 @@
     <script src="toggle-rolling-reverse.js"></script>
     <script src="toggle-rolling.js"></script>
     <script src="toggle-switch.js"></script>
+    <script src="volumeslider.js"></script>
+    <script src="radio-toggle.js"></script>
+    <script src="circular-gauge.js"></script>
+    <script src="shutdown-progress.js"></script>
+    <script src="circular-preloader.js"></script>
+    <script src="analog-clock.js"></script>
+    <script src="rolling-menu.js"></script>
     <script src="bundle.js"></script>
 
 </body>
