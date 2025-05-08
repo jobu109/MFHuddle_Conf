@@ -17,7 +17,10 @@
   
       // Publish to CrComLib when toggled
       input.addEventListener('change', () => {
-        CrComLib.publishEvent('b', digitalJoin, input.checked);
+        CrComLib.publishEvent('b', digitalJoin, true);
+        setTimeout(() => {
+          CrComLib.publishEvent('b', digitalJoin, false);
+        }, 100);
       });
   
       // Subscribe to feedback

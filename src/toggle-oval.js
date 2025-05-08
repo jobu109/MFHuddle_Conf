@@ -17,7 +17,10 @@
     container.appendChild(wrapper);
 
     input.addEventListener('change', () => {
-      CrComLib.publishEvent('b', digitalJoin, input.checked);
+      CrComLib.publishEvent('b', digitalJoin, true);
+      setTimeout(() => {
+        CrComLib.publishEvent('b', digitalJoin, false);
+      }, 100);
     });
 
     CrComLib.subscribeState('b', feedbackJoin, (val) => {

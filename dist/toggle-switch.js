@@ -4,38 +4,38 @@
     if (!window.CrComLib || !container) return;
 
     const wrapper = document.createElement('div');
-    wrapper.className = 'toggle-switch-wrapper';
+    wrapper.className = 'tsw-toggle-center';
 
     const center = document.createElement('div');
-    center.className = 'center';
+    center.className = 'tsw-toggle-center';
 
     const input = document.createElement('input');
     input.type = 'checkbox';
     input.id = `toggle-switch-${digitalJoin}`;
 
     const label = document.createElement('label');
-    label.className = 'switch';
+    label.className = 'tsw-toggle-switch';
     label.setAttribute('for', input.id);
 
     const modeOff = document.createElement('div');
-    modeOff.className = 'mode';
+    modeOff.className = 'tsw-toggle-mode';
     const textOff = document.createElement('div');
-    textOff.className = 'text';
+    textOff.className = 'tsw-toggle-text';
     textOff.textContent = 'OFF';
     modeOff.appendChild(textOff);
 
     const modeOn = document.createElement('div');
-    modeOn.className = 'mode';
+    modeOn.className = 'tsw-toggle-mode';
     const textOn = document.createElement('div');
-    textOn.className = 'text';
+    textOn.className = 'tsw-toggle-text';
     textOn.textContent = 'ON';
     modeOn.appendChild(textOn);
 
     const indicatorLeft = document.createElement('div');
-    indicatorLeft.className = 'indicator left';
+    indicatorLeft.className = 'tsw-toggle-indicator tsw-toggle-left';
 
     const indicatorRight = document.createElement('div');
-    indicatorRight.className = 'indicator right';
+    indicatorRight.className = 'tsw-toggle-indicator tsw-toggle-right';
 
     label.appendChild(modeOff);
     label.appendChild(modeOn);
@@ -48,7 +48,10 @@
     container.appendChild(wrapper);
 
     input.addEventListener('change', () => {
-      CrComLib.publishEvent('b', digitalJoin, input.checked);
+      CrComLib.publishEvent('b', digitalJoin, true);
+      setTimeout(() => {
+        CrComLib.publishEvent('b', digitalJoin, false);
+      }, 100);
     });
 
     CrComLib.subscribeState('b', feedbackJoin, (val) => {

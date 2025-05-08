@@ -45,6 +45,12 @@ module.exports = {
         { from: 'src/rolling-menu.js', to: 'rolling-menu.js' },
         { from: 'src/shutdown-progress.js', to: 'shutdown-progress.js' },
         { from: 'src/analog-clock.js', to: 'analog-clock.js' },
+        { from: 'src/glass-carousel.js', to: 'glass-carousel.js' },
+        { from: 'src/flip-card.js', to: 'flip-card.js' },
+        { from: 'src/button-oval.js', to: 'button-oval.js' },
+        { from: 'src/button-mute.js', to: 'button-mute.js' },
+        { from: 'src/button-rectangle.js', to: 'button-rectangle.js' },
+        { from: 'src/button-nav.js', to: 'button-nav.js' },
       ]      
     })
   ],

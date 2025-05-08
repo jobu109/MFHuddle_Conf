@@ -22,58 +22,24 @@
 
 <body>
   <section id="top">
-
-    <div id="time">12:00 PM</div>
-    <div id="date">Wednesday, April 16, 2025</div>
+    <div id="room-name">Room Name</div>
+    <div id="time-date">Wednesday, April 16, 2025</div>
   </section>
     <!-- Left Navigation -->
     <nav id="left-nav">
-      <button class="nav-btn" data-page="home">
-        <img src="./assets/img/glassrectangle.png" alt="Home Background" class="btn-bg">
-        <i class="fas fa-home"></i>
-        <span>Home</span>
-      </button>
-      <button class="nav-btn" data-page="video">
-        <img src="./assets/img/glassrectangle.png" alt="Video Background" class="btn-bg">
-        <i class="fas fa-tv"></i>
-        <span>Video</span>
-      </button>
-      
-      <button class="nav-btn" data-page="displays">
-        <img src="./assets/img/glassrectangle.png" alt="Displays Background" class="btn-bg">
-        <i class="fas fa-display"></i>
-        <span>Displays</span>
-      </button>
-
-      <button class="nav-btn" data-page="mics">
-        <img src="./assets/img/glassrectangle.png" alt="Mics Background" class="btn-bg">
-        <i class="fas fa-microphone"></i>
-        <span>Mics</span>
-      </button>
-      
-      <button class="nav-btn" data-page="camera">
-        <img src="./assets/img/glassrectangle.png" alt="Camera Background" class="btn-bg">
-        <i class="fas fa-camera"></i>
-        <span>Camera</span>
-      </button>
-      
-      <button class="nav-btn" data-page="call">
-        <img src="./assets/img/glassrectangle.png" alt="Call Background" class="btn-bg">
-        <i class="fas fa-phone"></i>
-        <span>Call</span>
-      </button>
-      
-      <button class="nav-btn" data-page="settings">
-        <img src="./assets/img/glassrectangle.png" alt="Settings Background" class="btn-bg">
-        <i class="fas fa-cog"></i>
-        <span>Settings</span>
-      </button>
+      <div id="nav-home"></div>
+      <div id="nav-video"></div>
+      <div id="nav-displays"></div>
+      <div id="nav-mics"></div>
+      <div id="nav-camera"></div>
+      <div id="nav-call"></div>
+      <div id="nav-settings"></div>
     </nav>
   
     <!-- Main Content Area -->
   <main id="main-area">
     <div id="content-wrapper">
-      <div id ="main-content" class="content-page active">
+      <div id ="home-content" class="content-page active">
         <div id="quick-actions">
           <h1>Quick Actions</h1>
           <div id="quick-actions-toggles">
@@ -129,15 +95,14 @@
     <div id="video-content" class="content-page">
       <h1>Choose your Destination</h1> 
         <div class="card-section">
-          <glass-carousel slides="7"></glass-carousel>
-          <toggle-switch digital-join="71" feedback-join="81"></toggle-switch>
+          <div id="flip-card"></div>
         </div>
     </div>
 
     <div id="displays-content" class="content-page">
       <h1>TVs</h1> 
         <div class="card-section">
-          <glass-carousel slides="7"></glass-carousel>
+          <div id="glass-carousel-2"></div>
         </div>
     </div>
   
@@ -186,7 +151,6 @@
       <h1>Settings Page</h1>
       <div class="card-section">
           <div id="shutdown-progress"></div>
-          <div id="room-name">Room Name</div>
       </div>
     
       <div class="card-section">
@@ -201,16 +165,13 @@
   
       <div id="center-group"> <!-- New wrapper only -->
         <div class="mute-group">
-          <button id="mute-btn" class="mute-btn">
-            <i class="fas fa-volume-mute"></i>
-          </button>        
+          <div id="vol-mute"></div>       
         </div>
-      
         <div class="volume-group">
           <div class="volume-controls">
-            <button id="volume-down" class="vol-btn">-</button>
-              <div id="volumeslider1"></div>
-            <button id="volume-up" class="vol-btn">+</button>
+            <div id="vol-dwn"></div>
+            <div id="volumeslider1"></div>
+            <div id="vol-up"></div>
           </div>
         </div>
       </div>
@@ -229,11 +190,12 @@
         <h1 class="subpage-title">Select a Source</h1>
         <div class="card-section">
           <div class="button-column">
-            <button>Source 1</button>
-            <button>Source 2</button>
-            <button>Source 3</button>
-            <button>Source 4</button>
-            <button>Source 5</button>
+            <div id="source-btn-1"></div>
+            <div id="source-btn-2"></div>
+            <div id="source-btn-3"></div>
+            <div id="source-btn-4"></div>
+            <div id="source-btn-5"></div>
+            <div id="source-btn-6"></div>
           </div>
         </div>
       </div>
@@ -257,28 +219,28 @@
         <div class="card-section">
           <div class="toggle-column">
             <div class="toggle-row">
-              <div id="mic-toggle-1"></div>
               <span class="mic-label">Mic 1</span>
+              <div id="mic-toggle-1"></div>
             </div>
             <div class="toggle-row">
+              <span class="mic-label">Mic 2</span>
               <div id="mic-toggle-2"></div>
-                <span class="mic-label">Mic 2</span>
             </div>
             <div class="toggle-row">
-              <div id="mic-toggle-3"></div>
               <span class="mic-label">Mic 3</span>
+              <div id="mic-toggle-3"></div>
             </div>
             <div class="toggle-row">
-              <div id="mic-toggle-4"></div>
               <span class="mic-label">Mic 4</span>
+              <div id="mic-toggle-4"></div>
             </div>
             <div class="toggle-row">
-              <div id="mic-toggle-5"></div>
               <span class="mic-label">Mic 5</span>
+              <div id="mic-toggle-5"></div>
             </div>
             <div class="toggle-row">
+              <span class="mic-label">Mic 6</span>
               <div id="mic-toggle-6"></div>
-                <span class="mic-label">Mic 6</span>
             </div>
       
           </div>
@@ -289,18 +251,30 @@
         <h1 class="subpage-title">Presets</h1>
         <div class="card-section">
           <div class="button-column">
-            <div id="mute-toggle-1"></div>
-            <span class="mute-label">Preset 1</span>
-            <div id="mute-toggle-2"></div>
-            <span class="mute-label">Preset 2</span>
-            <div id="mute-toggle-3"></div>
-            <span class="mute-label">Preset 3</span>
-            <div id="mute-toggle-4"></div>
-            <span class="mute-label">Preset 4</span>
-            <div id="mute-toggle-5"></div>
-            <span class="mute-label">Preset 5</span>
-            <div id="mute-toggle-6"></div>
-            <span class="mute-label">Preset 6</span>
+            <div class="toggle-row">
+              <span class="mute-label">Preset 1</span>
+              <div id="mute-toggle-1"></div>
+            </div>
+            <div class="toggle-row">
+              <span class="mute-label">Preset 2</span>
+              <div id="mute-toggle-2"></div>
+            </div>            
+            <div class="toggle-row">
+              <span class="mute-label">Preset 3</span>
+              <div id="mute-toggle-3"></div>
+            </div>            
+            <div class="toggle-row">
+              <span class="mute-label">Preset 4</span>
+              <div id="mute-toggle-4"></div>
+            </div>            
+            <div class="toggle-row">
+              <span class="mute-label">Preset 5</span>
+              <div id="mute-toggle-5"></div>
+            </div>            
+            <div class="toggle-row">
+              <span class="mute-label">Preset 6</span>
+              <div id="mute-toggle-6"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -337,6 +311,12 @@
     <script src="circular-preloader.js"></script>
     <script src="analog-clock.js"></script>
     <script src="rolling-menu.js"></script>
+    <script src="glass-carousel.js"></script>
+    <script src="flip-card.js"></script>
+    <script src="button-oval.js"></script>
+    <script src="button-mute.js"></script>
+    <script src="button-rectangle.js"></script>
+    <script src="button-nav.js"></script>
     <script src="bundle.js"></script>
 
 </body>

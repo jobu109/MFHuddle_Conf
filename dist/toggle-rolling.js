@@ -1,4 +1,3 @@
-
 (function() {
   window.createToggleRolling = function(container, digitalJoin, feedbackJoin) {
     if (!window.CrComLib || !container) return;
@@ -32,9 +31,12 @@
     wrapper.appendChild(input);
     wrapper.appendChild(label);
     container.appendChild(wrapper);
-
+      // Momentary press
     input.addEventListener('change', () => {
-      CrComLib.publishEvent('b', digitalJoin, input.checked);
+      CrComLib.publishEvent('b', digitalJoin, true);
+      setTimeout(() => {
+        CrComLib.publishEvent('b', digitalJoin, false);
+      }, 100);
     });
 
     CrComLib.subscribeState('b', feedbackJoin, (val) => {

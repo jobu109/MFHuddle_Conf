@@ -4,7 +4,7 @@
   
       container.classList.add('tsw-clock-container');
       container.innerHTML = `
-        <div class="tsw-clock-city" id="city">Loading...</div>
+        <div class="tsw-clock-city" id="city">Default City</div>
         <div class="tsw-clock-face">
           <div class="tsw-clock-glow"></div>
           <div class="tsw-clock-points"></div>
