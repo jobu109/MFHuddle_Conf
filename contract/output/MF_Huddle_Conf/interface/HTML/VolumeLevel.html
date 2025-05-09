@@ -1,0 +1,13 @@
+<template id="MF_Huddle_Conf.Volume.VolumeLevel">
+	<div id="Volume.VolumeLevel">
+	 		<ch5-button sendEventOnClick="VolumeLevel.VolUp_btn" receiveStateSelected="VolumeLevel.VolUp_FB">
+        	</ch5-button>
+	 		<ch5-button sendEventOnClick="VolumeLevel.VolDwn_btn" receiveStateSelected="VolumeLevel.VolDwn_FB">
+        	</ch5-button>
+	 		<ch5-button sendEventOnClick="VolumeLevel.VolMute_btn" receiveStateSelected="VolumeLevel.VolMute_FB">
+        	</ch5-button>
+	 		<ch5-slider sendEventOnChange="VolumeLevel.VolLevel_Set" receiveStateValue="VolumeLevel.VolLevel_FB">
+        	</ch5-slider>
+	 	<ch5-textinput sendEventOnChange="VolumeLevel.VolPercentTX" receiveStateValue="VolumeLevel.VolPercentRX"> </ch5-textinput>
+	 </div>
+</template>

@@ -14,7 +14,7 @@
      "main": "build_bundles/cjs/cr-com-lib.js",
   "scripts": {
     "build": "webpack",
-    "archive": "ch5-cli archive -p huddle_conf -d dist -o archive",
+    "archive": "ch5-cli archive -p huddle_conf -d dist -o archive -c ./contract/output/MF_Huddle_Conf/interface/mapping/MF_Huddle_Conf.cse2j",
     "onestep": "npm run build && npm run archive",
     "huddle:build": "webpack --env source=ExampleRooms/HuddleRoom/html --env target=ExampleRooms/HuddleRoom",
     "huddle:archive": "ch5-cli archive -p HuddleRoom -d ExampleRooms/HuddleRoom/dist -o archive",

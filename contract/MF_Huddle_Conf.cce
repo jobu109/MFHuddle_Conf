@@ -1,0 +1,196 @@
+{
+	"Errors": [],
+	"id": "_nhpw4foqf",
+	"name": "MF_Huddle_Conf",
+	"description": "Conference_Huddle Room CH5",
+	"company": "TSI Global",
+	"client": "Template",
+	"author": "Michael Floyd",
+	"version": "1.0.0.0",
+	"schemaVersion": 1,
+	"subContractLinks": [],
+	"subContracts": [],
+	"specifications": [
+		{
+			"Errors": [],
+			"parentId": "_nhpw4foqf",
+			"id": "_2xd70j1uo",
+			"componentId": "_tfmf9ku0r",
+			"instanceName": "PowerOn",
+			"numberOfInstances": 1
+		},
+		{
+			"Errors": [],
+			"parentId": "_nhpw4foqf",
+			"id": "_r7oozo0pk",
+			"componentId": "_92qj2juey",
+			"instanceName": "VolumeLevel",
+			"numberOfInstances": 1
+		}
+	],
+	"components": [
+		{
+			"Errors": [],
+			"parentId": "_nhpw4foqf",
+			"id": "_tfmf9ku0r",
+			"name": "Power",
+			"commands": [
+				{
+					"Errors": [],
+					"name": "PowerON_FB",
+					"siblingId": "_e9j3ilou4",
+					"dataType": 1,
+					"notes": "",
+					"id": "_x5arkc8pm",
+					"parentId": "_tfmf9ku0r",
+					"attributeType": 0
+				},
+				{
+					"Errors": [],
+					"name": "PowerOFF_FB",
+					"siblingId": "_f8loa51ke",
+					"dataType": 1,
+					"notes": "",
+					"id": "_95qi6vagx",
+					"parentId": "_tfmf9ku0r",
+					"attributeType": 0
+				}
+			],
+			"feedbacks": [
+				{
+					"Errors": [],
+					"name": "PowerON_btn",
+					"siblingId": "_x5arkc8pm",
+					"dataType": 1,
+					"notes": "",
+					"id": "_e9j3ilou4",
+					"parentId": "_tfmf9ku0r",
+					"attributeType": 1
+				},
+				{
+					"Errors": [],
+					"name": "PowerOFF_btn",
+					"siblingId": "_95qi6vagx",
+					"dataType": 1,
+					"notes": "",
+					"id": "_f8loa51ke",
+					"parentId": "_tfmf9ku0r",
+					"attributeType": 1
+				}
+			],
+			"specifications": []
+		},
+		{
+			"Errors": [],
+			"parentId": "_nhpw4foqf",
+			"id": "_92qj2juey",
+			"name": "Volume",
+			"commands": [
+				{
+					"Errors": [],
+					"name": "VolUp_FB",
+					"siblingId": "_y269no2lw",
+					"dataType": 1,
+					"notes": "",
+					"id": "_pevo73pj3",
+					"parentId": "_92qj2juey",
+					"attributeType": 0
+				},
+				{
+					"Errors": [],
+					"name": "VolDwn_FB",
+					"siblingId": "_bxhwgdov1",
+					"dataType": 1,
+					"notes": "",
+					"id": "_mgilo5uoj",
+					"parentId": "_92qj2juey",
+					"attributeType": 0
+				},
+				{
+					"Errors": [],
+					"name": "VolMute_FB",
+					"siblingId": "_j8jwuomau",
+					"dataType": 1,
+					"notes": "",
+					"id": "_hxtq5vhky",
+					"parentId": "_92qj2juey",
+					"attributeType": 0
+				},
+				{
+					"Errors": [],
+					"name": "VolLevel_FB",
+					"siblingId": "_09l1mljlg",
+					"dataType": 2,
+					"notes": "",
+					"id": "_mgj6jcepo",
+					"parentId": "_92qj2juey",
+					"attributeType": 0
+				},
+				{
+					"Errors": [],
+					"name": "VolPercentRX",
+					"siblingId": "_9t3bp3ahd",
+					"dataType": 3,
+					"notes": "",
+					"id": "_mg4za382y",
+					"parentId": "_92qj2juey",
+					"attributeType": 0
+				}
+			],
+			"feedbacks": [
+				{
+					"Errors": [],
+					"name": "VolUp_btn",
+					"siblingId": "_pevo73pj3",
+					"dataType": 1,
+					"notes": "",
+					"id": "_y269no2lw",
+					"parentId": "_92qj2juey",
+					"attributeType": 1
+				},
+				{
+					"Errors": [],
+					"name": "VolDwn_btn",
+					"siblingId": "_mgilo5uoj",
+					"dataType": 1,
+					"notes": "",
+					"id": "_bxhwgdov1",
+					"parentId": "_92qj2juey",
+					"attributeType": 1
+				},
+				{
+					"Errors": [],
+					"name": "VolMute_btn",
+					"siblingId": "_hxtq5vhky",
+					"dataType": 1,
+					"notes": "",
+					"id": "_j8jwuomau",
+					"parentId": "_92qj2juey",
+					"attributeType": 1
+				},
+				{
+					"Errors": [],
+					"name": "VolLevel_Set",
+					"siblingId": "_mgj6jcepo",
+					"dataType": 2,
+					"notes": "",
+					"id": "_09l1mljlg",
+					"parentId": "_92qj2juey",
+					"attributeType": 1
+				},
+				{
+					"Errors": [],
+					"name": "VolPercentTX",
+					"siblingId": "_mg4za382y",
+					"dataType": 3,
+					"notes": "",
+					"id": "_9t3bp3ahd",
+					"parentId": "_92qj2juey",
+					"attributeType": 1
+				}
+			],
+			"specifications": []
+		}
+	],
+	"allComponentsForAllContracts": []
+}
