@@ -1,0 +1,12 @@
+<template id="MF_Huddle_Conf.SlidersGauges.miclevel">
+	<ch5-list id="SlidersGauges.miclevel" indexId="idx1" size="4" orientation="horizontal">
+ 	 	 <template>
+ 	 	 <div class="horizontal-list-item">
+	 		<ch5-slider sendEventOnChange="miclevel[{{idx1}}].level_set" receiveStateValue="miclevel[{{idx1}}].level_fb">
+        	</ch5-slider>
+	 	<span data-ch5-textcontent="miclevel[{{idx1}}].label">Label</span>
+	 	 </div> 
+ 	 	</template>
+ 	</ch5-list>
+
+</template>

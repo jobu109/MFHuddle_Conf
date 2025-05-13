@@ -1,0 +1,22 @@
+<template id="MF_Huddle_Conf.TVs.tvs">
+	<ch5-list id="TVs.tvs" indexId="idx1" size="7" orientation="horizontal">
+ 	 	 <template>
+ 	 	 <div class="horizontal-list-item">
+	 		<ch5-button sendEventOnClick="tvs[{{idx1}}].on_btn" receiveStateSelected="tvs[{{idx1}}].on_fb">
+        	</ch5-button>
+	 		<ch5-button sendEventOnClick="tvs[{{idx1}}].off_btn" receiveStateSelected="tvs[{{idx1}}].off_fb">
+        	</ch5-button>
+	 		<ch5-button sendEventOnClick="tvs[{{idx1}}].hdmi1_btn" receiveStateSelected="tvs[{{idx1}}].hdmi1_fb">
+        	</ch5-button>
+	 		<ch5-button sendEventOnClick="tvs[{{idx1}}].hdmi2_btn" receiveStateSelected="tvs[{{idx1}}].hdmi2_fb">
+        	</ch5-button>
+	 		<ch5-button sendEventOnClick="tvs[{{idx1}}].hdmi3_btn" receiveStateSelected="tvs[{{idx1}}].hdmi3_fb">
+        	</ch5-button>
+	 	<span data-ch5-textcontent="tvs[{{idx1}}].hdmi1_label">Label</span>
+	 	<span data-ch5-textcontent="tvs[{{idx1}}].hdmi2_label">Label</span>
+	 	<span data-ch5-textcontent="tvs[{{idx1}}].hdmi3_label">Label</span>
+	 	 </div> 
+ 	 	</template>
+ 	</ch5-list>
+
+</template>

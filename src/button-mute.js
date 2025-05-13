@@ -24,8 +24,15 @@
       button.addEventListener('mousedown', () => CrComLib.publishEvent('b', digitalJoin, true));
       button.addEventListener('mouseup', () => CrComLib.publishEvent('b', digitalJoin, false));
       button.addEventListener('mouseleave', () => CrComLib.publishEvent('b', digitalJoin, false));
-      button.addEventListener('touchstart', () => CrComLib.publishEvent('b', digitalJoin, true));
-      button.addEventListener('touchend', () => CrComLib.publishEvent('b', digitalJoin, false));
+      // Touch
+      button.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        CrComLib.publishEvent('b', digitalJoin, true);
+      });
+      button.addEventListener('touchend', (e) => {
+        e.preventDefault();
+        CrComLib.publishEvent('b', digitalJoin, false);
+      });
   
       CrComLib.subscribeState('b', feedbackJoin, (val) => {
         button.classList.toggle('active', val);

@@ -10,11 +10,11 @@ namespace MF_Huddle_Conf
     {
         object UserObject { get; set; }
 
-        event EventHandler<UIEventArgs> PowerON_btn;
-        event EventHandler<UIEventArgs> PowerOFF_btn;
+        event EventHandler<UIEventArgs> on_btn;
+        event EventHandler<UIEventArgs> off_btn;
 
-        void PowerON_FB(PowerBoolInputSigDelegate callback);
-        void PowerOFF_FB(PowerBoolInputSigDelegate callback);
+        void on_fb(PowerBoolInputSigDelegate callback);
+        void off_fb(PowerBoolInputSigDelegate callback);
 
     }
 
@@ -41,11 +41,11 @@ namespace MF_Huddle_Conf
         {
             internal static class Booleans
             {
-                public const uint PowerON_btn = 1;
-                public const uint PowerOFF_btn = 2;
+                public const uint on_btn = 1;
+                public const uint off_btn = 2;
 
-                public const uint PowerON_FB = 1;
-                public const uint PowerOFF_FB = 2;
+                public const uint on_fb = 1;
+                public const uint off_fb = 2;
             }
         }
 
@@ -65,8 +65,8 @@ namespace MF_Huddle_Conf
  
             _devices = new List<BasicTriListWithSmartObject>(); 
  
-            ComponentMediator.ConfigureBooleanEvent(controlJoinId, Joins.Booleans.PowerON_btn, onPowerON_btn);
-            ComponentMediator.ConfigureBooleanEvent(controlJoinId, Joins.Booleans.PowerOFF_btn, onPowerOFF_btn);
+            ComponentMediator.ConfigureBooleanEvent(controlJoinId, Joins.Booleans.on_btn, onon_btn);
+            ComponentMediator.ConfigureBooleanEvent(controlJoinId, Joins.Booleans.off_btn, onoff_btn);
 
         }
 
@@ -86,36 +86,36 @@ namespace MF_Huddle_Conf
 
         #region CH5 Contract
 
-        public event EventHandler<UIEventArgs> PowerON_btn;
-        private void onPowerON_btn(SmartObjectEventArgs eventArgs)
+        public event EventHandler<UIEventArgs> on_btn;
+        private void onon_btn(SmartObjectEventArgs eventArgs)
         {
-            EventHandler<UIEventArgs> handler = PowerON_btn;
+            EventHandler<UIEventArgs> handler = on_btn;
             if (handler != null)
                 handler(this, UIEventArgs.CreateEventArgs(eventArgs));
         }
 
-        public event EventHandler<UIEventArgs> PowerOFF_btn;
-        private void onPowerOFF_btn(SmartObjectEventArgs eventArgs)
+        public event EventHandler<UIEventArgs> off_btn;
+        private void onoff_btn(SmartObjectEventArgs eventArgs)
         {
-            EventHandler<UIEventArgs> handler = PowerOFF_btn;
+            EventHandler<UIEventArgs> handler = off_btn;
             if (handler != null)
                 handler(this, UIEventArgs.CreateEventArgs(eventArgs));
         }
 
 
-        public void PowerON_FB(PowerBoolInputSigDelegate callback)
+        public void on_fb(PowerBoolInputSigDelegate callback)
         {
             for (int index = 0; index < Devices.Count; index++)
             {
-                callback(Devices[index].SmartObjects[ControlJoinId].BooleanInput[Joins.Booleans.PowerON_FB], this);
+                callback(Devices[index].SmartObjects[ControlJoinId].BooleanInput[Joins.Booleans.on_fb], this);
             }
         }
 
-        public void PowerOFF_FB(PowerBoolInputSigDelegate callback)
+        public void off_fb(PowerBoolInputSigDelegate callback)
         {
             for (int index = 0; index < Devices.Count; index++)
             {
-                callback(Devices[index].SmartObjects[ControlJoinId].BooleanInput[Joins.Booleans.PowerOFF_FB], this);
+                callback(Devices[index].SmartObjects[ControlJoinId].BooleanInput[Joins.Booleans.off_fb], this);
             }
         }
 
@@ -146,8 +146,8 @@ namespace MF_Huddle_Conf
 
             IsDisposed = true;
 
-            PowerON_btn = null;
-            PowerOFF_btn = null;
+            on_btn = null;
+            off_btn = null;
         }
 
         #endregion

@@ -14,10 +14,8 @@
           <button class="glass-carousel-next">&#10095;</button>
         </div>`;
   
-      const slidesHTML = Array.from({ length: slidesCount }, (_, i) => `
-        <div class="glass-slide${i === 0 ? ' active' : ''}">
-          <span class="glass-label">Slide ${i + 1}</span>
-        </div>
+      const slidesHTML = (options.slides || Array.from({ length: slidesCount }, (_, i) => `<div class='glass-label'>Slide ${i + 1}</div>`)).map((html, i) => `
+        <div class="glass-slide${i === 0 ? ' active' : ''}">${html}</div>
       `).join('');
   
       container.innerHTML = `

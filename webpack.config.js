@@ -51,6 +51,7 @@ module.exports = {
         { from: 'src/button-mute.js', to: 'button-mute.js' },
         { from: 'src/button-rectangle.js', to: 'button-rectangle.js' },
         { from: 'src/button-nav.js', to: 'button-nav.js' },
+        { from: 'src/toggle-hole.js', to: 'toggle-hole.js' },
       ]      
     })
   ],

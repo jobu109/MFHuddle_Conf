@@ -37,50 +37,57 @@ if (isActive) {
 window.addEventListener("DOMContentLoaded", () => {
   initializeCrComLibEvents();
   updateLayoutVariables();
-  createOvalButton(document.getElementById('vol-dwn'), '121', '131', '121', 'fa-volume-down');  //dig press, dig FB, Label, fa-icon
-  createOvalButton(document.getElementById('vol-up'), '122', '132', '122', 'fa-volume-up');
-  createRectButton(document.getElementById('source-btn-1'), '133', '143', '133');  //press, fb, label
-  createRectButton(document.getElementById('source-btn-2'), '134', '144', '134');  //press, fb, label
-  createRectButton(document.getElementById('source-btn-3'), '135', '145', '135');  //press, fb, label
-  createRectButton(document.getElementById('source-btn-4'), '136', '146', '136');  //press, fb, label
-  createRectButton(document.getElementById('source-btn-5'), '137', '147', '137');  //press, fb, label
-  createRectButton(document.getElementById('source-btn-6'), '138', '148', '138');  //press, fb, label
-  createNavButton(document.getElementById('nav-home'),'1', '11', '41', 'fa-home');  //dig press, dig FB, Label, fa-icon
-  createNavButton(document.getElementById('nav-video'),'2', '12', '42', 'fa-tv');  //dig press, dig FB, Label, fa-icon
-  createNavButton(document.getElementById('nav-displays'),'3', '13', '43', 'fa-display');  //dig press, dig FB, Label, fa-icon
-  createNavButton(document.getElementById('nav-mics'),'4', '14', '44', 'fa-microphone');  //dig press, dig FB, Label, fa-icon
-  createNavButton(document.getElementById('nav-camera'),'5', '15', '45', 'fa-camera');  //dig press, dig FB, Label, fa-icon
-  createNavButton(document.getElementById('nav-call'),'6', '16', '46', 'fa-phone');  //dig press, dig FB, Label, fa-icon
-  createNavButton(document.getElementById('nav-settings'),'7', '17', '47', 'fa-cog');  //dig press, dig FB, Label, fa-icon
-  createMuteButton(document.getElementById('vol-mute'), '123', '133', '123', 'fa-volume-mute');
-  createToggleSquare(document.getElementById('quick-toggle-1'), '21', '31');  //digital press, FB
-  createToggleSquare(document.getElementById('quick-toggle-2'), '22', '32');
-  createToggleSquare(document.getElementById('quick-toggle-3'), '23', '33');
-  createToggleRollingReverse(document.getElementById('mic-toggle-1'), '41', '51');
-  createToggleRollingReverse(document.getElementById('mic-toggle-2'), '42', '52');
-  createToggleRollingReverse(document.getElementById('mic-toggle-3'), '43', '53');
-  createToggleRollingReverse(document.getElementById('mic-toggle-4'), '44', '54');
-  createToggleRollingReverse(document.getElementById('mic-toggle-5'), '45', '55');
-  createToggleRollingReverse(document.getElementById('mic-toggle-6'), '46', '56');
-  createToggleRolling(document.getElementById('mute-toggle-1'), '61', '71');
-  createToggleRolling(document.getElementById('mute-toggle-2'), '62', '72');
-  createToggleRolling(document.getElementById('mute-toggle-3'), '63', '73');
-  createToggleRolling(document.getElementById('mute-toggle-4'), '64', '74');
-  createToggleRolling(document.getElementById('mute-toggle-5'), '65', '75');
-  createToggleRolling(document.getElementById('mute-toggle-6'), '66', '75');
-  createToggleSwitch(document.getElementById('tv-toggle-1'), '101', '111');
-  createToggleSwitch(document.getElementById('tv-toggle-2'), '102', '112');
-  createToggleSwitch(document.getElementById('tv-toggle-3'), '103', '113');
-  createToggleSwitch(document.getElementById('tv-toggle-4'), '104', '114');
-  createToggleSwitch(document.getElementById('tv-toggle-5'), '105', '115');
-  createToggleSwitch(document.getElementById('tv-toggle-6'), '106', '166');
-  createVolumeSlider(document.getElementById('volumeslider1'), '13', '12');
-  createCircularGauge(document.getElementById('gauge-mic-1'), '51', '61', '11');//Analog Set, Analogfb, text join
-  createCircularGauge(document.getElementById('gauge-mic-2'), '52', '62', '12');
-  createCircularGauge(document.getElementById('gauge-mic-3'), '53', '63', '13');
-  createCircularGauge(document.getElementById('gauge-mic-4'), '54', '64', '14');
-  createShutdownProgress(document.getElementById('shutdown-progress'), '5', '6');//analog join, text join
-  createAnalogClock(document.getElementById("analog-clock"), '51' , '52');
+  createOvalButton(document.getElementById('vol-dwn'), 'volume.dwn_btn', 'volume.dwn_fb', '', 'fa-volume-down');  //dig press, dig FB, Label, fa-icon
+  createOvalButton(document.getElementById('vol-up'), 'volume.up_btn', 'volume.up_fb', '', 'fa-volume-up');
+  createMuteButton(document.getElementById('vol-mute'), 'volume.mute_btn', 'volume.mute_fb', '', 'fa-volume-mute');
+  createRectButton(document.getElementById('source-btn-1'), 'source[0].btn', 'source[0].fb', 'source[0].label');  //press, fb, label
+  createRectButton(document.getElementById('source-btn-2'), 'source[1].btn', 'source[1].fb', 'source[1].label');  //press, fb, label
+  createRectButton(document.getElementById('source-btn-3'), 'source[2].btn', 'source[2].fb', 'source[2].label');  //press, fb, label
+  createRectButton(document.getElementById('source-btn-4'), 'source[3].btn', 'source[3].fb', 'source[3].label');  //press, fb, label
+  createRectButton(document.getElementById('source-btn-5'), 'source[4].btn', 'source[4].fb', 'source[4].label');  //press, fb, label
+  createRectButton(document.getElementById('source-btn-6'), 'source[5].btn', 'source[5].fb', 'source[5].label');  //press, fb, label
+  createRectButton(document.getElementById('call-btn-1'), 'call[0].btn', 'call[0].fb', 'call[0].label');  //press, fb, label
+  createRectButton(document.getElementById('call-btn-2'), 'call[1].btn', 'call[1].fb', 'call[1].label');  //press, fb, label
+  createRectButton(document.getElementById('call-btn-3'), 'call[2].btn', 'call[2].fb', 'call[2].label');  //press, fb, label
+  createRectButton(document.getElementById('call-btn-4'), 'call[3].btn', 'call[3].fb', 'call[3].label');  //press, fb, label
+  createRectButton(document.getElementById('call-btn-5'), 'call[4].btn', 'call[4].fb', 'call[4].label');  //press, fb, label
+  createRectButton(document.getElementById('call-btn-6'), 'call[5].btn', 'call[5].fb', 'call[5].label');  //press, fb, label
+  createNavButton(document.getElementById('nav-home'),'nav[0].btn', 'nav[0].fb', 'nav[0].label','fa-home');  //dig press, dig FB, Label, fa-icon
+  createNavButton(document.getElementById('nav-video'),'nav[1].btn', 'nav[1].fb', 'nav[1].label', 'fa-tv');  //dig press, dig FB, Label, fa-icon
+  createNavButton(document.getElementById('nav-displays'),'nav[2].btn', 'nav[2].fb', 'nav[2].label', 'fa-display');  //dig press, dig FB, Label, fa-icon
+  createNavButton(document.getElementById('nav-mics'),'nav[3].btn', 'nav[3].fb', 'nav[3].label', 'fa-microphone');  //dig press, dig FB, Label, fa-icon
+  createNavButton(document.getElementById('nav-camera'),'nav[4].btn', 'nav[4].fb', 'nav[4].label', 'fa-camera');  //dig press, dig FB, Label, fa-icon
+  createNavButton(document.getElementById('nav-call'),'nav[5].btn', 'nav[5].fb', 'nav[5].label', 'fa-phone');  //dig press, dig FB, Label, fa-icon
+  createNavButton(document.getElementById('nav-settings'),'nav[6].btn', 'nav[6].fb', 'nav[6].label', 'fa-cog');  //dig press, dig FB, Label, fa-icon
+  createToggleSquare(document.getElementById('quick-toggle-1'), 'quick[0].btn', 'quick[0].fb');  //digital press, FB
+  createToggleSquare(document.getElementById('quick-toggle-2'), 'quick[1].btn', 'quick[1].fb');  //digital press, FB
+  createToggleSquare(document.getElementById('quick-toggle-3'), 'quick[2].btn', 'quick[2].fb');  //digital press, FB
+  createToggleRollingReverse(document.getElementById('mic-toggle-1'), 'mics[0].btn', 'mics[0].fb');
+  createToggleRollingReverse(document.getElementById('mic-toggle-2'), 'mics[1].btn', 'mics[1].fb');
+  createToggleRollingReverse(document.getElementById('mic-toggle-3'), 'mics[2].btn', 'mics[2].fb');
+  createToggleRollingReverse(document.getElementById('mic-toggle-4'), 'mics[3].btn', 'mics[3].fb');
+  createToggleRollingReverse(document.getElementById('mic-toggle-5'), 'mics[4].btn', 'mics[4].fb');
+  createToggleRollingReverse(document.getElementById('mic-toggle-6'), 'mics[5].btn', 'mics[5].fb');
+  createToggleRolling(document.getElementById('mute-toggle-1'), 'presets[0].btn', 'presets[0].fb');
+  createToggleRolling(document.getElementById('mute-toggle-2'), 'presets[1].btn', 'presets[1].fb');
+  createToggleRolling(document.getElementById('mute-toggle-3'), 'presets[2].btn', 'presets[2].fb');
+  createToggleRolling(document.getElementById('mute-toggle-4'), 'presets[3].btn', 'presets[3].fb');
+  createToggleRolling(document.getElementById('mute-toggle-5'), 'presets[4].btn', 'presets[4].fb');
+  createToggleRolling(document.getElementById('mute-toggle-6'), 'presets[5].btn', 'presets[5].fb');
+  createToggleSwitch(document.getElementById('tv-toggle-1'), 'tvs[0].on_btn', 'tvs[0].on_fb');
+  createToggleSwitch(document.getElementById('tv-toggle-2'), 'tvs[1].on_btn', 'tvs[1].on_fb');
+  createToggleSwitch(document.getElementById('tv-toggle-3'), 'tvs[2].on_btn', 'tvs[2].on_fb');
+  createToggleSwitch(document.getElementById('tv-toggle-4'), 'tvs[3].on_btn', 'tvs[3].on_fb');
+  createToggleSwitch(document.getElementById('tv-toggle-5'), 'tvs[4].on_btn', 'tvs[4].on_fb');
+  createToggleSwitch(document.getElementById('tv-toggle-6'), 'tvs[5].on_btn', 'tvs[5].on_fb');
+  createToggleHole(document.getElementById('toggle-hole-1'), 'tvs[6].on_btn', 'tvs[6].on_fb');
+  createVolumeSlider(document.getElementById('volumeslider1'), 'volume.level_fb', 'volume.level_set');
+  createCircularGauge(document.getElementById('gauge-mic-1'), 'miclevel[0].level_set', 'miclevel[0].level_fb', 'miclevel[0].label');//Analog Set, Analogfb, text join
+  createCircularGauge(document.getElementById('gauge-mic-2'), 'miclevel[1].level_set', 'miclevel[1].level_fb', 'miclevel[1].label');//Analog Set, Analogfb, text join
+  createCircularGauge(document.getElementById('gauge-mic-3'), 'miclevel[2].level_set', 'miclevel[2].level_fb', 'miclevel[2].label');//Analog Set, Analogfb, text join
+  createCircularGauge(document.getElementById('gauge-mic-4'), 'miclevel[3].level_set', 'miclevel[3].level_fb', 'miclevel[3].label');//Analog Set, Analogfb, text join
+  createShutdownProgress(document.getElementById('shutdown-progress'), 'shutdownprogress.fb', 'shutdownprogress.send');//analog join, text join
+  createAnalogClock(document.getElementById("analog-clock"), 'clock.time' , 'clock.cityname');
   createFlipCards(document.getElementById('flip-card'), {
     selectedBaseJoin: '151',  // Digital input base join for flip (auto-generated +1 for each "card" ...)
     pressedBaseJoin: '141',     // Digital output base join for press
@@ -90,16 +97,43 @@ window.addEventListener("DOMContentLoaded", () => {
       { image: 'assets/img/Circle_Glass.png', title: 'Display 3', description: 'Display 3 has been selected' },
     ]
   });
+
   createGlassCarousel(document.getElementById('glass-carousel-1'), {
-    join: 31 ,// Analog join from Crestron
-    feedbackJoin: 41
+    join: 'carousel.level_set',
+    feedbackJoin: 'carousel.level_fb',
+    slides: [
+      `
+      <div class="glass-label">TV 1</div>
+      <div class="glass-button-group">
+        <div id="tv1-hdmi1"></div>
+        <div id="tv1-hdmi2"></div>
+      </div>
+      `,
+      `
+      <div class="glass-label">TV 2</div>
+      <div class="glass-button-group">
+        <div id="tv2-hdmi1"></div>
+        <div id="tv2-hdmi2"></div>
+      </div>
+      `,      `
+      <div class="glass-label">TV 3</div>
+      <div class="glass-button-group">
+        <div id="tv3-hdmi1"></div>
+        <div id="tv3-hdmi2"></div>
+      </div>
+      `
+    ]
   });
-  createGlassCarousel(document.getElementById('glass-carousel-2'), {
-    join: 32, // Analog join from Crestron
-    feedbackJoin: 42
-  });
-    
-  createCircularPreloader(document.getElementById('circular-preloader'), '21','Please Wait.......');  
+    createRectButton(document.getElementById('tv1-hdmi1'), 'tvs[0].hdmi1_btn', 'tvs[0].hdmi1_fb', 'tvs[0].hdmi1_label');
+    createRectButton(document.getElementById('tv1-hdmi2'), 'tvs[0].hdmi2_btn', 'tvs[0].hdmi2_fb', 'tvs[0].hdmi2_label');
+
+    createRectButton(document.getElementById('tv2-hdmi1'), 'tvs[1].hdmi1_btn', 'tvs[1].hdmi1_fb', 'tvs[1].hdmi1_label');
+    createRectButton(document.getElementById('tv2-hdmi2'), 'tvs[1].hdmi2_btn', 'tvs[1].hdmi2_fb', 'tvs[1].hdmi2_label');
+
+    createRectButton(document.getElementById('tv3-hdmi1'), 'tvs[2].hdmi1_btn', 'tvs[2].hdmi1_fb', 'tvs[2].hdmi1_label');
+    createRectButton(document.getElementById('tv3-hdmi2'), 'tvs[2].hdmi2_btn', 'tvs[2].hdmi2_fb', 'tvs[2].hdmi2_label');
+
+  createCircularPreloader(document.getElementById('circular-preloader'), 'circular.label','Please Wait.......');  
   createRollingMenu(document.getElementById('rolling-menu-1'), {
     analogJoin: '22',         // join that controls selected item
     feedbackJoin: '23',       // join to send back selected index
@@ -110,19 +144,19 @@ window.addEventListener("DOMContentLoaded", () => {
   createRadioToggle(document.getElementById('radio-toggle1'), {
     groupId: 'grp1',
     buttons: [
-      { label: 'Button 1', digitalJoin: '81', feedbackJoin: '91', textJoin: '81' },
-      { label: 'Button 2', digitalJoin: '82', feedbackJoin: '92', textJoin: '82' },
-      { label: 'Button 3', digitalJoin: '83', feedbackJoin: '93', textJoin: '83' },
+      { label: 'Button 1', digitalJoin: 'radio[0].btn_1', feedbackJoin: 'raqdio[0].btn_1_fb', textJoin: 'radio[0].label_1' },
+      { label: 'Button 2', digitalJoin: 'radio[0].btn_2', feedbackJoin: 'raqdio[0].btn_2_fb', textJoin: 'radio[0].label_2' },
+      { label: 'Button 3', digitalJoin: 'radio[0].btn_3', feedbackJoin: 'raqdio[0].btn_3_fb', textJoin: 'radio[0].label_3' },
     ]
   });
   
-  createRadioToggle(document.getElementById('radio-toggle1'), {
-    groupId: 'grp1',
+  createRadioToggle(document.getElementById('radio-toggle2'), {
+    groupId: 'grp2',
     buttons: [
-      { label: 'Button 1', digitalJoin: '84', feedbackJoin: '94', textJoin: '84' },
-      { label: 'Button 2', digitalJoin: '85', feedbackJoin: '95', textJoin: '85' },
-      { label: 'Button 3', digitalJoin: '86', feedbackJoin: '96', textJoin: '86' },
-      { label: 'Button 4', digitalJoin: '87', feedbackJoin: '97', textJoin: '87' },
+      { label: 'Button 1', digitalJoin: 'radio[1].btn_1', feedbackJoin: 'raqdio[1].btn_1_fb', textJoin: 'radio[1].label_1' },
+      { label: 'Button 2', digitalJoin: 'radio[1].btn_2', feedbackJoin: 'raqdio[1].btn_2_fb', textJoin: 'radio[1].label_2' },
+      { label: 'Button 3', digitalJoin: 'radio[1].btn_3', feedbackJoin: 'raqdio[1].btn_3_fb', textJoin: 'radio[1].label_3' },
+      { label: 'Button 4', digitalJoin: 'radio[1].btn_4', feedbackJoin: 'raqdio[1].btn_4_fb', textJoin: 'radio[1].label_4' },
     ]
   });
   

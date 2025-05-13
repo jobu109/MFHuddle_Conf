@@ -10,17 +10,17 @@ namespace MF_Huddle_Conf
     {
         object UserObject { get; set; }
 
-        event EventHandler<UIEventArgs> VolUp_btn;
-        event EventHandler<UIEventArgs> VolDwn_btn;
-        event EventHandler<UIEventArgs> VolMute_btn;
-        event EventHandler<UIEventArgs> VolLevel_Set;
-        event EventHandler<UIEventArgs> VolPercentTX;
+        event EventHandler<UIEventArgs> up_btn;
+        event EventHandler<UIEventArgs> dwn_btn;
+        event EventHandler<UIEventArgs> mute_btn;
+        event EventHandler<UIEventArgs> level_set;
+        event EventHandler<UIEventArgs> percenttx;
 
-        void VolUp_FB(VolumeBoolInputSigDelegate callback);
-        void VolDwn_FB(VolumeBoolInputSigDelegate callback);
-        void VolMute_FB(VolumeBoolInputSigDelegate callback);
-        void VolLevel_FB(VolumeUShortInputSigDelegate callback);
-        void VolPercentRX(VolumeStringInputSigDelegate callback);
+        void up_fb(VolumeBoolInputSigDelegate callback);
+        void dwn_fb(VolumeBoolInputSigDelegate callback);
+        void mute_fb(VolumeBoolInputSigDelegate callback);
+        void level_fb(VolumeUShortInputSigDelegate callback);
+        void percentrx(VolumeStringInputSigDelegate callback);
 
     }
 
@@ -49,25 +49,25 @@ namespace MF_Huddle_Conf
         {
             internal static class Booleans
             {
-                public const uint VolUp_btn = 1;
-                public const uint VolDwn_btn = 2;
-                public const uint VolMute_btn = 3;
+                public const uint up_btn = 1;
+                public const uint dwn_btn = 2;
+                public const uint mute_btn = 3;
 
-                public const uint VolUp_FB = 1;
-                public const uint VolDwn_FB = 2;
-                public const uint VolMute_FB = 3;
+                public const uint up_fb = 1;
+                public const uint dwn_fb = 2;
+                public const uint mute_fb = 3;
             }
             internal static class Numerics
             {
-                public const uint VolLevel_Set = 1;
+                public const uint level_set = 1;
 
-                public const uint VolLevel_FB = 1;
+                public const uint level_fb = 1;
             }
             internal static class Strings
             {
-                public const uint VolPercentTX = 1;
+                public const uint percenttx = 1;
 
-                public const uint VolPercentRX = 1;
+                public const uint percentrx = 1;
             }
         }
 
@@ -87,11 +87,11 @@ namespace MF_Huddle_Conf
  
             _devices = new List<BasicTriListWithSmartObject>(); 
  
-            ComponentMediator.ConfigureBooleanEvent(controlJoinId, Joins.Booleans.VolUp_btn, onVolUp_btn);
-            ComponentMediator.ConfigureBooleanEvent(controlJoinId, Joins.Booleans.VolDwn_btn, onVolDwn_btn);
-            ComponentMediator.ConfigureBooleanEvent(controlJoinId, Joins.Booleans.VolMute_btn, onVolMute_btn);
-            ComponentMediator.ConfigureNumericEvent(controlJoinId, Joins.Numerics.VolLevel_Set, onVolLevel_Set);
-            ComponentMediator.ConfigureStringEvent(controlJoinId, Joins.Strings.VolPercentTX, onVolPercentTX);
+            ComponentMediator.ConfigureBooleanEvent(controlJoinId, Joins.Booleans.up_btn, onup_btn);
+            ComponentMediator.ConfigureBooleanEvent(controlJoinId, Joins.Booleans.dwn_btn, ondwn_btn);
+            ComponentMediator.ConfigureBooleanEvent(controlJoinId, Joins.Booleans.mute_btn, onmute_btn);
+            ComponentMediator.ConfigureNumericEvent(controlJoinId, Joins.Numerics.level_set, onlevel_set);
+            ComponentMediator.ConfigureStringEvent(controlJoinId, Joins.Strings.percenttx, onpercenttx);
 
         }
 
@@ -111,86 +111,86 @@ namespace MF_Huddle_Conf
 
         #region CH5 Contract
 
-        public event EventHandler<UIEventArgs> VolUp_btn;
-        private void onVolUp_btn(SmartObjectEventArgs eventArgs)
+        public event EventHandler<UIEventArgs> up_btn;
+        private void onup_btn(SmartObjectEventArgs eventArgs)
         {
-            EventHandler<UIEventArgs> handler = VolUp_btn;
+            EventHandler<UIEventArgs> handler = up_btn;
             if (handler != null)
                 handler(this, UIEventArgs.CreateEventArgs(eventArgs));
         }
 
-        public event EventHandler<UIEventArgs> VolDwn_btn;
-        private void onVolDwn_btn(SmartObjectEventArgs eventArgs)
+        public event EventHandler<UIEventArgs> dwn_btn;
+        private void ondwn_btn(SmartObjectEventArgs eventArgs)
         {
-            EventHandler<UIEventArgs> handler = VolDwn_btn;
+            EventHandler<UIEventArgs> handler = dwn_btn;
             if (handler != null)
                 handler(this, UIEventArgs.CreateEventArgs(eventArgs));
         }
 
-        public event EventHandler<UIEventArgs> VolMute_btn;
-        private void onVolMute_btn(SmartObjectEventArgs eventArgs)
+        public event EventHandler<UIEventArgs> mute_btn;
+        private void onmute_btn(SmartObjectEventArgs eventArgs)
         {
-            EventHandler<UIEventArgs> handler = VolMute_btn;
+            EventHandler<UIEventArgs> handler = mute_btn;
             if (handler != null)
                 handler(this, UIEventArgs.CreateEventArgs(eventArgs));
         }
 
 
-        public void VolUp_FB(VolumeBoolInputSigDelegate callback)
+        public void up_fb(VolumeBoolInputSigDelegate callback)
         {
             for (int index = 0; index < Devices.Count; index++)
             {
-                callback(Devices[index].SmartObjects[ControlJoinId].BooleanInput[Joins.Booleans.VolUp_FB], this);
+                callback(Devices[index].SmartObjects[ControlJoinId].BooleanInput[Joins.Booleans.up_fb], this);
             }
         }
 
-        public void VolDwn_FB(VolumeBoolInputSigDelegate callback)
+        public void dwn_fb(VolumeBoolInputSigDelegate callback)
         {
             for (int index = 0; index < Devices.Count; index++)
             {
-                callback(Devices[index].SmartObjects[ControlJoinId].BooleanInput[Joins.Booleans.VolDwn_FB], this);
+                callback(Devices[index].SmartObjects[ControlJoinId].BooleanInput[Joins.Booleans.dwn_fb], this);
             }
         }
 
-        public void VolMute_FB(VolumeBoolInputSigDelegate callback)
+        public void mute_fb(VolumeBoolInputSigDelegate callback)
         {
             for (int index = 0; index < Devices.Count; index++)
             {
-                callback(Devices[index].SmartObjects[ControlJoinId].BooleanInput[Joins.Booleans.VolMute_FB], this);
+                callback(Devices[index].SmartObjects[ControlJoinId].BooleanInput[Joins.Booleans.mute_fb], this);
             }
         }
 
-        public event EventHandler<UIEventArgs> VolLevel_Set;
-        private void onVolLevel_Set(SmartObjectEventArgs eventArgs)
+        public event EventHandler<UIEventArgs> level_set;
+        private void onlevel_set(SmartObjectEventArgs eventArgs)
         {
-            EventHandler<UIEventArgs> handler = VolLevel_Set;
+            EventHandler<UIEventArgs> handler = level_set;
             if (handler != null)
                 handler(this, UIEventArgs.CreateEventArgs(eventArgs));
         }
 
 
-        public void VolLevel_FB(VolumeUShortInputSigDelegate callback)
+        public void level_fb(VolumeUShortInputSigDelegate callback)
         {
             for (int index = 0; index < Devices.Count; index++)
             {
-                callback(Devices[index].SmartObjects[ControlJoinId].UShortInput[Joins.Numerics.VolLevel_FB], this);
+                callback(Devices[index].SmartObjects[ControlJoinId].UShortInput[Joins.Numerics.level_fb], this);
             }
         }
 
-        public event EventHandler<UIEventArgs> VolPercentTX;
-        private void onVolPercentTX(SmartObjectEventArgs eventArgs)
+        public event EventHandler<UIEventArgs> percenttx;
+        private void onpercenttx(SmartObjectEventArgs eventArgs)
         {
-            EventHandler<UIEventArgs> handler = VolPercentTX;
+            EventHandler<UIEventArgs> handler = percenttx;
             if (handler != null)
                 handler(this, UIEventArgs.CreateEventArgs(eventArgs));
         }
 
 
-        public void VolPercentRX(VolumeStringInputSigDelegate callback)
+        public void percentrx(VolumeStringInputSigDelegate callback)
         {
             for (int index = 0; index < Devices.Count; index++)
             {
-                callback(Devices[index].SmartObjects[ControlJoinId].StringInput[Joins.Strings.VolPercentRX], this);
+                callback(Devices[index].SmartObjects[ControlJoinId].StringInput[Joins.Strings.percentrx], this);
             }
         }
 
@@ -221,11 +221,11 @@ namespace MF_Huddle_Conf
 
             IsDisposed = true;
 
-            VolUp_btn = null;
-            VolDwn_btn = null;
-            VolMute_btn = null;
-            VolLevel_Set = null;
-            VolPercentTX = null;
+            up_btn = null;
+            dwn_btn = null;
+            mute_btn = null;
+            level_set = null;
+            percenttx = null;
         }
 
         #endregion

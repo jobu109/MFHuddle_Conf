@@ -1,0 +1,12 @@
+<template id="MF_Huddle_Conf.CallButtons.call">
+	<ch5-list id="CallButtons.call" indexId="idx1" size="6" orientation="horizontal">
+ 	 	 <template>
+ 	 	 <div class="horizontal-list-item">
+	 		<ch5-button sendEventOnClick="call[{{idx1}}].btn" receiveStateSelected="call[{{idx1}}].fb">
+        	</ch5-button>
+	 	<span data-ch5-textcontent="call[{{idx1}}].label">Label</span>
+	 	 </div> 
+ 	 	</template>
+ 	</ch5-list>
+
+</template>
