@@ -34,6 +34,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  /*outline: 1px solid rgba(255, 0, 0, 0.2);*/
 }
 
 #top {
@@ -804,9 +805,9 @@ h1, h2, h3, p {
   border-radius: 0.67em / 1em;
   box-shadow:
     0 0.05em 0.1em rgba(255, 50, 50, 0.05) inset,        /* soft top highlight in red tone */
-    0 -0.1em 0.25em rgba(128, 0, 0, 0.4) inset,          /* darker red inner shadow */
-    0 -0.2em 0 rgba(100, 0, 0, 0.5) inset,               /* strong red base edge */
-    0 0.05em 0.1em rgba(128, 0, 0, 0.2);                 /* outer red contour */
+    0 -0.1em 0.25em rgba(68, 66, 66, 0.4) inset,          /* darker red inner shadow */
+    0 -0.2em 0 rgba(15, 0, 0, 0.5) inset,               /* strong red base edge */
+    0 0.05em 0.1em rgba(43, 42, 42, 0.2);                 /* outer red contour */
 }
 
 .slider-hole::before {
@@ -1057,6 +1058,7 @@ h1, h2, h3, p {
   justify-content: space-between;
   padding: 0 2rem;
   z-index: 2;
+  pointer-events: none;
 }
 
 .carousel-controls button {
@@ -1720,7 +1722,7 @@ h1, h2, h3, p {
 
 .tsw-shutdown-head {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
@@ -1761,10 +1763,9 @@ h1, h2, h3, p {
   font-size: 1rem;
   text-align: center;
 }
-
 /* Shutdown Wrapper */
-/* Square Toggle Style */
 
+/* Square Toggle Style */
 .slider-square {
   position: relative;
   width: 60px;
@@ -2033,9 +2034,7 @@ h1, h2, h3, p {
 
 /* Toggle Rolling Reverse Style */
 
-
 /* Toggle Switch Style */
-
 .tsw-toggle-center {
   display: flex;
   align-items: center;
@@ -2083,27 +2082,23 @@ input[type='checkbox'] {
   font-family: 'Poppins', sans-serif;
   font-size: 27px;
   font-weight: 800;
-  color: transparent;
-  background-color: green;
-  background-clip: text;
+  color: green; /* instead of transparent + background-clip */
+  background: none;
   text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
-  transition: background-color 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 input[type='checkbox']:not(:checked) + .tsw-toggle-switch .tsw-toggle-mode:nth-child(1) .tsw-toggle-text {
-  background-color: red;
+  color: red;
 }
-
 input[type='checkbox']:not(:checked) + .tsw-toggle-switch .tsw-toggle-mode:nth-child(2) .tsw-toggle-text {
-  background-color: green;
+  color: green;
 }
-
 input[type='checkbox']:checked + .tsw-toggle-switch .tsw-toggle-mode:nth-child(2) .tsw-toggle-text {
-  background-color: red;
+  color: red;
 }
-
 input[type='checkbox']:checked + .tsw-toggle-switch .tsw-toggle-mode:nth-child(1) .tsw-toggle-text {
-  background-color: green;
+  color: green;
 }
 
 input[type='checkbox']:not(:checked) + .tsw-toggle-switch .tsw-toggle-mode:nth-child(1) {

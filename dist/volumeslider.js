@@ -98,10 +98,8 @@
 
     // Subscribe to Crestron analog feedback
     CrComLib.subscribeState('n', feedbackJoin, (val) => {
-      console.log('[FEEDBACK RECEIVED]', val);
-      updateUI(val); // <--- make sure this is present
+      updateUI(val);
     });
     
-    //CrComLib.requestState('n', feedbackJoin); // request current state on load
   };
 })();

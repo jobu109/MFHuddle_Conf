@@ -25,8 +25,8 @@ namespace MF_Huddle_Conf
 
         private ComponentMediator ComponentMediator { get; set; }
 
-        public MF_Huddle_Conf.IPower poweron { get { return (MF_Huddle_Conf.IPower)Internalpoweron; } }
-        private MF_Huddle_Conf.Power Internalpoweron { get; set; }
+        public MF_Huddle_Conf.IPower power { get { return (MF_Huddle_Conf.IPower)Internalpower; } }
+        private MF_Huddle_Conf.Power Internalpower { get; set; }
 
         public MF_Huddle_Conf.IVolume volume { get { return (MF_Huddle_Conf.IVolume)Internalvolume; } }
         private MF_Huddle_Conf.Volume Internalvolume { get; set; }
@@ -110,7 +110,7 @@ namespace MF_Huddle_Conf
 
             ComponentMediator = new ComponentMediator();
 
-            Internalpoweron = new MF_Huddle_Conf.Power(ComponentMediator, 1);
+            Internalpower = new MF_Huddle_Conf.Power(ComponentMediator, 1);
             Internalvolume = new MF_Huddle_Conf.Volume(ComponentMediator, 2);
             Internalsource = new MF_Huddle_Conf.SourceButtons[SourceSmartObjectIdMappings.Count];
             for (int index = 0; index < SourceSmartObjectIdMappings.Count; index++)
@@ -190,7 +190,7 @@ namespace MF_Huddle_Conf
 
         public void AddDevice(BasicTriListWithSmartObject device)
         {
-            Internalpoweron.AddDevice(device);
+            Internalpower.AddDevice(device);
             Internalvolume.AddDevice(device);
             for (int index = 0; index < 6; index++)
             {
@@ -236,7 +236,7 @@ namespace MF_Huddle_Conf
 
         public void RemoveDevice(BasicTriListWithSmartObject device)
         {
-            Internalpoweron.RemoveDevice(device);
+            Internalpower.RemoveDevice(device);
             Internalvolume.RemoveDevice(device);
             for (int index = 0; index < 6; index++)
             {
@@ -293,7 +293,7 @@ namespace MF_Huddle_Conf
 
             IsDisposed = true;
 
-            Internalpoweron.Dispose();
+            Internalpower.Dispose();
             Internalvolume.Dispose();
             for (int index = 0; index < 6; index++)
             {

@@ -1,0 +1,767 @@
+{
+	"name": "MF_Huddle_Conf",
+	"timestamp": "2025-05-13 14:03:56.791",
+	"version": "1.0.0.0",
+	"schema_version": 1,
+	"extra_value": "Conference_Huddle Room CH5",
+	"signals": {
+		"states": {
+			"boolean": {
+				"1": {
+					"1": "power.on_fb",
+					"2": "power.off_fb"
+				},
+				"2": {
+					"1": "volume.up_fb",
+					"2": "volume.dwn_fb",
+					"3": "volume.mute_fb"
+				},
+				"3": {
+					"1": "source[0].fb"
+				},
+				"4": {
+					"1": "source[1].fb"
+				},
+				"5": {
+					"1": "source[2].fb"
+				},
+				"6": {
+					"1": "source[3].fb"
+				},
+				"7": {
+					"1": "source[4].fb"
+				},
+				"8": {
+					"1": "source[5].fb"
+				},
+				"9": {
+					"1": "call[0].fb"
+				},
+				"10": {
+					"1": "call[1].fb"
+				},
+				"11": {
+					"1": "call[2].fb"
+				},
+				"12": {
+					"1": "call[3].fb"
+				},
+				"13": {
+					"1": "call[4].fb"
+				},
+				"14": {
+					"1": "call[5].fb"
+				},
+				"16": {
+					"1": "tvs[0].on_fb",
+					"2": "tvs[0].off_fb",
+					"3": "tvs[0].hdmi1_fb",
+					"4": "tvs[0].hdmi2_fb",
+					"5": "tvs[0].hdmi3_fb"
+				},
+				"17": {
+					"1": "tvs[1].on_fb",
+					"2": "tvs[1].off_fb",
+					"3": "tvs[1].hdmi1_fb",
+					"4": "tvs[1].hdmi2_fb",
+					"5": "tvs[1].hdmi3_fb"
+				},
+				"18": {
+					"1": "tvs[2].on_fb",
+					"2": "tvs[2].off_fb",
+					"3": "tvs[2].hdmi1_fb",
+					"4": "tvs[2].hdmi2_fb",
+					"5": "tvs[2].hdmi3_fb"
+				},
+				"19": {
+					"1": "tvs[3].on_fb",
+					"2": "tvs[3].off_fb",
+					"3": "tvs[3].hdmi1_fb",
+					"4": "tvs[3].hdmi2_fb",
+					"5": "tvs[3].hdmi3_fb"
+				},
+				"20": {
+					"1": "tvs[4].on_fb",
+					"2": "tvs[4].off_fb",
+					"3": "tvs[4].hdmi1_fb",
+					"4": "tvs[4].hdmi2_fb",
+					"5": "tvs[4].hdmi3_fb"
+				},
+				"21": {
+					"1": "tvs[5].on_fb",
+					"2": "tvs[5].off_fb",
+					"3": "tvs[5].hdmi1_fb",
+					"4": "tvs[5].hdmi2_fb",
+					"5": "tvs[5].hdmi3_fb"
+				},
+				"22": {
+					"1": "tvs[6].on_fb",
+					"2": "tvs[6].off_fb",
+					"3": "tvs[6].hdmi1_fb",
+					"4": "tvs[6].hdmi2_fb",
+					"5": "tvs[6].hdmi3_fb"
+				},
+				"23": {
+					"1": "nav[0].fb"
+				},
+				"24": {
+					"1": "nav[1].fb"
+				},
+				"25": {
+					"1": "nav[2].fb"
+				},
+				"26": {
+					"1": "nav[3].fb"
+				},
+				"27": {
+					"1": "nav[4].fb"
+				},
+				"28": {
+					"1": "nav[5].fb"
+				},
+				"29": {
+					"1": "nav[6].fb"
+				},
+				"30": {
+					"1": "mics[0].fb"
+				},
+				"31": {
+					"1": "mics[1].fb"
+				},
+				"32": {
+					"1": "mics[2].fb"
+				},
+				"33": {
+					"1": "mics[3].fb"
+				},
+				"34": {
+					"1": "mics[4].fb"
+				},
+				"35": {
+					"1": "mics[5].fb"
+				},
+				"36": {
+					"1": "presets[0].fb"
+				},
+				"37": {
+					"1": "presets[1].fb"
+				},
+				"38": {
+					"1": "presets[2].fb"
+				},
+				"39": {
+					"1": "presets[3].fb"
+				},
+				"40": {
+					"1": "presets[4].fb"
+				},
+				"41": {
+					"1": "presets[5].fb"
+				},
+				"42": {
+					"1": "quick[0].fb"
+				},
+				"43": {
+					"1": "quick[1].fb"
+				},
+				"44": {
+					"1": "quick[2].fb"
+				},
+				"52": {
+					"1": "radio[0].btn_1_fb",
+					"2": "radio[0].btn_2_fb",
+					"3": "radio[0].btn_3_fb",
+					"4": "radio[0].btn_4_fb",
+					"5": "radio[0].btn_5_fb"
+				},
+				"53": {
+					"1": "radio[1].btn_1_fb",
+					"2": "radio[1].btn_2_fb",
+					"3": "radio[1].btn_3_fb",
+					"4": "radio[1].btn_4_fb",
+					"5": "radio[1].btn_5_fb"
+				}
+			},
+			"numeric": {
+				"2": {
+					"1": "volume.level_fb"
+				},
+				"15": {
+					"1": "shutdownprogress.level_fb"
+				},
+				"45": {
+					"1": "miclevel[0].level_fb"
+				},
+				"46": {
+					"1": "miclevel[1].level_fb"
+				},
+				"47": {
+					"1": "miclevel[2].level_fb"
+				},
+				"48": {
+					"1": "miclevel[3].level_fb"
+				},
+				"50": {
+					"1": "carousel.level_fb"
+				}
+			},
+			"string": {
+				"2": {
+					"1": "volume.percentrx"
+				},
+				"3": {
+					"1": "source[0].label"
+				},
+				"4": {
+					"1": "source[1].label"
+				},
+				"5": {
+					"1": "source[2].label"
+				},
+				"6": {
+					"1": "source[3].label"
+				},
+				"7": {
+					"1": "source[4].label"
+				},
+				"8": {
+					"1": "source[5].label"
+				},
+				"9": {
+					"1": "call[0].label"
+				},
+				"10": {
+					"1": "call[1].label"
+				},
+				"11": {
+					"1": "call[2].label"
+				},
+				"12": {
+					"1": "call[3].label"
+				},
+				"13": {
+					"1": "call[4].label"
+				},
+				"14": {
+					"1": "call[5].label"
+				},
+				"15": {
+					"1": "shutdownprogress.label"
+				},
+				"16": {
+					"1": "tvs[0].hdmi1_label",
+					"2": "tvs[0].hdmi2_label",
+					"3": "tvs[0].hdmi3_label"
+				},
+				"17": {
+					"1": "tvs[1].hdmi1_label",
+					"2": "tvs[1].hdmi2_label",
+					"3": "tvs[1].hdmi3_label"
+				},
+				"18": {
+					"1": "tvs[2].hdmi1_label",
+					"2": "tvs[2].hdmi2_label",
+					"3": "tvs[2].hdmi3_label"
+				},
+				"19": {
+					"1": "tvs[3].hdmi1_label",
+					"2": "tvs[3].hdmi2_label",
+					"3": "tvs[3].hdmi3_label"
+				},
+				"20": {
+					"1": "tvs[4].hdmi1_label",
+					"2": "tvs[4].hdmi2_label",
+					"3": "tvs[4].hdmi3_label"
+				},
+				"21": {
+					"1": "tvs[5].hdmi1_label",
+					"2": "tvs[5].hdmi2_label",
+					"3": "tvs[5].hdmi3_label"
+				},
+				"22": {
+					"1": "tvs[6].hdmi1_label",
+					"2": "tvs[6].hdmi2_label",
+					"3": "tvs[6].hdmi3_label"
+				},
+				"23": {
+					"1": "nav[0].label"
+				},
+				"24": {
+					"1": "nav[1].label"
+				},
+				"25": {
+					"1": "nav[2].label"
+				},
+				"26": {
+					"1": "nav[3].label"
+				},
+				"27": {
+					"1": "nav[4].label"
+				},
+				"28": {
+					"1": "nav[5].label"
+				},
+				"29": {
+					"1": "nav[6].label"
+				},
+				"30": {
+					"1": "mics[0].label"
+				},
+				"31": {
+					"1": "mics[1].label"
+				},
+				"32": {
+					"1": "mics[2].label"
+				},
+				"33": {
+					"1": "mics[3].label"
+				},
+				"34": {
+					"1": "mics[4].label"
+				},
+				"35": {
+					"1": "mics[5].label"
+				},
+				"36": {
+					"1": "presets[0].label"
+				},
+				"37": {
+					"1": "presets[1].label"
+				},
+				"38": {
+					"1": "presets[2].label"
+				},
+				"39": {
+					"1": "presets[3].label"
+				},
+				"40": {
+					"1": "presets[4].label"
+				},
+				"41": {
+					"1": "presets[5].label"
+				},
+				"42": {
+					"1": "quick[0].label"
+				},
+				"43": {
+					"1": "quick[1].label"
+				},
+				"44": {
+					"1": "quick[2].label"
+				},
+				"45": {
+					"1": "miclevel[0].label"
+				},
+				"46": {
+					"1": "miclevel[1].label"
+				},
+				"47": {
+					"1": "miclevel[2].label"
+				},
+				"48": {
+					"1": "miclevel[3].label"
+				},
+				"49": {
+					"1": "clock.time",
+					"2": "clock.cityname"
+				},
+				"50": {
+					"1": "carousel.label"
+				},
+				"51": {
+					"1": "circular.label"
+				},
+				"52": {
+					"1": "radio[0].label_1",
+					"2": "radio[0].label_2",
+					"3": "radio[0].label_3",
+					"4": "radio[0].label_4",
+					"5": "radio[0].label_5"
+				},
+				"53": {
+					"1": "radio[1].label_1",
+					"2": "radio[1].label_2",
+					"3": "radio[1].label_3",
+					"4": "radio[1].label_4",
+					"5": "radio[1].label_5"
+				}
+			}
+		},
+		"events": {
+			"boolean": {
+				"power.on_btn": {
+					"joinId": 1,
+					"smartObjectId": 1
+				},
+				"power.off_btn": {
+					"joinId": 2,
+					"smartObjectId": 1
+				},
+				"volume.up_btn": {
+					"joinId": 1,
+					"smartObjectId": 2
+				},
+				"volume.dwn_btn": {
+					"joinId": 2,
+					"smartObjectId": 2
+				},
+				"volume.mute_btn": {
+					"joinId": 3,
+					"smartObjectId": 2
+				},
+				"source[0].btn": {
+					"joinId": 1,
+					"smartObjectId": 3
+				},
+				"source[1].btn": {
+					"joinId": 1,
+					"smartObjectId": 4
+				},
+				"source[2].btn": {
+					"joinId": 1,
+					"smartObjectId": 5
+				},
+				"source[3].btn": {
+					"joinId": 1,
+					"smartObjectId": 6
+				},
+				"source[4].btn": {
+					"joinId": 1,
+					"smartObjectId": 7
+				},
+				"source[5].btn": {
+					"joinId": 1,
+					"smartObjectId": 8
+				},
+				"call[0].btn": {
+					"joinId": 1,
+					"smartObjectId": 9
+				},
+				"call[1].btn": {
+					"joinId": 1,
+					"smartObjectId": 10
+				},
+				"call[2].btn": {
+					"joinId": 1,
+					"smartObjectId": 11
+				},
+				"call[3].btn": {
+					"joinId": 1,
+					"smartObjectId": 12
+				},
+				"call[4].btn": {
+					"joinId": 1,
+					"smartObjectId": 13
+				},
+				"call[5].btn": {
+					"joinId": 1,
+					"smartObjectId": 14
+				},
+				"tvs[0].on_btn": {
+					"joinId": 1,
+					"smartObjectId": 16
+				},
+				"tvs[0].off_btn": {
+					"joinId": 2,
+					"smartObjectId": 16
+				},
+				"tvs[0].hdmi1_btn": {
+					"joinId": 3,
+					"smartObjectId": 16
+				},
+				"tvs[0].hdmi2_btn": {
+					"joinId": 4,
+					"smartObjectId": 16
+				},
+				"tvs[0].hdmi3_btn": {
+					"joinId": 5,
+					"smartObjectId": 16
+				},
+				"tvs[1].on_btn": {
+					"joinId": 1,
+					"smartObjectId": 17
+				},
+				"tvs[1].off_btn": {
+					"joinId": 2,
+					"smartObjectId": 17
+				},
+				"tvs[1].hdmi1_btn": {
+					"joinId": 3,
+					"smartObjectId": 17
+				},
+				"tvs[1].hdmi2_btn": {
+					"joinId": 4,
+					"smartObjectId": 17
+				},
+				"tvs[1].hdmi3_btn": {
+					"joinId": 5,
+					"smartObjectId": 17
+				},
+				"tvs[2].on_btn": {
+					"joinId": 1,
+					"smartObjectId": 18
+				},
+				"tvs[2].off_btn": {
+					"joinId": 2,
+					"smartObjectId": 18
+				},
+				"tvs[2].hdmi1_btn": {
+					"joinId": 3,
+					"smartObjectId": 18
+				},
+				"tvs[2].hdmi2_btn": {
+					"joinId": 4,
+					"smartObjectId": 18
+				},
+				"tvs[2].hdmi3_btn": {
+					"joinId": 5,
+					"smartObjectId": 18
+				},
+				"tvs[3].on_btn": {
+					"joinId": 1,
+					"smartObjectId": 19
+				},
+				"tvs[3].off_btn": {
+					"joinId": 2,
+					"smartObjectId": 19
+				},
+				"tvs[3].hdmi1_btn": {
+					"joinId": 3,
+					"smartObjectId": 19
+				},
+				"tvs[3].hdmi2_btn": {
+					"joinId": 4,
+					"smartObjectId": 19
+				},
+				"tvs[3].hdmi3_btn": {
+					"joinId": 5,
+					"smartObjectId": 19
+				},
+				"tvs[4].on_btn": {
+					"joinId": 1,
+					"smartObjectId": 20
+				},
+				"tvs[4].off_btn": {
+					"joinId": 2,
+					"smartObjectId": 20
+				},
+				"tvs[4].hdmi1_btn": {
+					"joinId": 3,
+					"smartObjectId": 20
+				},
+				"tvs[4].hdmi2_btn": {
+					"joinId": 4,
+					"smartObjectId": 20
+				},
+				"tvs[4].hdmi3_btn": {
+					"joinId": 5,
+					"smartObjectId": 20
+				},
+				"tvs[5].on_btn": {
+					"joinId": 1,
+					"smartObjectId": 21
+				},
+				"tvs[5].off_btn": {
+					"joinId": 2,
+					"smartObjectId": 21
+				},
+				"tvs[5].hdmi1_btn": {
+					"joinId": 3,
+					"smartObjectId": 21
+				},
+				"tvs[5].hdmi2_btn": {
+					"joinId": 4,
+					"smartObjectId": 21
+				},
+				"tvs[5].hdmi3_btn": {
+					"joinId": 5,
+					"smartObjectId": 21
+				},
+				"tvs[6].on_btn": {
+					"joinId": 1,
+					"smartObjectId": 22
+				},
+				"tvs[6].off_btn": {
+					"joinId": 2,
+					"smartObjectId": 22
+				},
+				"tvs[6].hdmi1_btn": {
+					"joinId": 3,
+					"smartObjectId": 22
+				},
+				"tvs[6].hdmi2_btn": {
+					"joinId": 4,
+					"smartObjectId": 22
+				},
+				"tvs[6].hdmi3_btn": {
+					"joinId": 5,
+					"smartObjectId": 22
+				},
+				"nav[0].btn": {
+					"joinId": 1,
+					"smartObjectId": 23
+				},
+				"nav[1].btn": {
+					"joinId": 1,
+					"smartObjectId": 24
+				},
+				"nav[2].btn": {
+					"joinId": 1,
+					"smartObjectId": 25
+				},
+				"nav[3].btn": {
+					"joinId": 1,
+					"smartObjectId": 26
+				},
+				"nav[4].btn": {
+					"joinId": 1,
+					"smartObjectId": 27
+				},
+				"nav[5].btn": {
+					"joinId": 1,
+					"smartObjectId": 28
+				},
+				"nav[6].btn": {
+					"joinId": 1,
+					"smartObjectId": 29
+				},
+				"mics[0].btn": {
+					"joinId": 1,
+					"smartObjectId": 30
+				},
+				"mics[1].btn": {
+					"joinId": 1,
+					"smartObjectId": 31
+				},
+				"mics[2].btn": {
+					"joinId": 1,
+					"smartObjectId": 32
+				},
+				"mics[3].btn": {
+					"joinId": 1,
+					"smartObjectId": 33
+				},
+				"mics[4].btn": {
+					"joinId": 1,
+					"smartObjectId": 34
+				},
+				"mics[5].btn": {
+					"joinId": 1,
+					"smartObjectId": 35
+				},
+				"presets[0].btn": {
+					"joinId": 1,
+					"smartObjectId": 36
+				},
+				"presets[1].btn": {
+					"joinId": 1,
+					"smartObjectId": 37
+				},
+				"presets[2].btn": {
+					"joinId": 1,
+					"smartObjectId": 38
+				},
+				"presets[3].btn": {
+					"joinId": 1,
+					"smartObjectId": 39
+				},
+				"presets[4].btn": {
+					"joinId": 1,
+					"smartObjectId": 40
+				},
+				"presets[5].btn": {
+					"joinId": 1,
+					"smartObjectId": 41
+				},
+				"quick[0].btn": {
+					"joinId": 1,
+					"smartObjectId": 42
+				},
+				"quick[1].btn": {
+					"joinId": 1,
+					"smartObjectId": 43
+				},
+				"quick[2].btn": {
+					"joinId": 1,
+					"smartObjectId": 44
+				},
+				"radio[0].btn_1": {
+					"joinId": 1,
+					"smartObjectId": 52
+				},
+				"radio[0].btn_2": {
+					"joinId": 2,
+					"smartObjectId": 52
+				},
+				"radio[0].btn_3": {
+					"joinId": 3,
+					"smartObjectId": 52
+				},
+				"radio[0].btn_4": {
+					"joinId": 4,
+					"smartObjectId": 52
+				},
+				"radio[0].btn_5": {
+					"joinId": 5,
+					"smartObjectId": 52
+				},
+				"radio[1].btn_1": {
+					"joinId": 1,
+					"smartObjectId": 53
+				},
+				"radio[1].btn_2": {
+					"joinId": 2,
+					"smartObjectId": 53
+				},
+				"radio[1].btn_3": {
+					"joinId": 3,
+					"smartObjectId": 53
+				},
+				"radio[1].btn_4": {
+					"joinId": 4,
+					"smartObjectId": 53
+				},
+				"radio[1].btn_5": {
+					"joinId": 5,
+					"smartObjectId": 53
+				}
+			},
+			"numeric": {
+				"volume.level_set": {
+					"joinId": 1,
+					"smartObjectId": 2
+				},
+				"shutdownprogress.level_set": {
+					"joinId": 1,
+					"smartObjectId": 15
+				},
+				"miclevel[0].level_set": {
+					"joinId": 1,
+					"smartObjectId": 45
+				},
+				"miclevel[1].level_set": {
+					"joinId": 1,
+					"smartObjectId": 46
+				},
+				"miclevel[2].level_set": {
+					"joinId": 1,
+					"smartObjectId": 47
+				},
+				"miclevel[3].level_set": {
+					"joinId": 1,
+					"smartObjectId": 48
+				},
+				"carousel.level_set": {
+					"joinId": 1,
+					"smartObjectId": 50
+				}
+			},
+			"string": {
+				"volume.percenttx": {
+					"joinId": 1,
+					"smartObjectId": 2
+				}
+			}
+		}
+	}
+}

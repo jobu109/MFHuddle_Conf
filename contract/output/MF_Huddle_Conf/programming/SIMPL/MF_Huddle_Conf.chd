@@ -11,14 +11,14 @@ Schema=1
 ProjectFile=MF_Huddle_Conf
 ContractID=_nhpw4foqf
 CEProjectVer=1.0.0.0
-DateTimeUTC=2025-05-13 13:36:09.396
+DateTimeUTC=2025-05-13 14:03:56.806
 Cmn1=Conference_Huddle Room CH5
 ]
 [
 ObjTp=Symbol
-Name=poweron
+Name=power
 SmplCName=_2xd70j1uo1
-Hint=poweron (Control Join Id 1)
+Hint=power (Control Join Id 1)
 Code=1
 SMWRev=4.13.00
 Expand=expand_randomly

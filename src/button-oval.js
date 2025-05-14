@@ -8,7 +8,7 @@ window.createOvalButton = function (container, digitalJoin, feedbackJoin, labelJ
   button.className = 'oval-btn';
 
   const icon = document.createElement('i');
-  icon.className = `fas ${iconClass} oval-btn-icon`; // <-- use argument here
+  icon.className = `fas ${iconClass} oval-btn-icon`; 
 
   const label = document.createElement('span');
   label.className = 'oval-btn-label';
@@ -23,8 +23,14 @@ window.createOvalButton = function (container, digitalJoin, feedbackJoin, labelJ
   button.addEventListener('mousedown', () => CrComLib.publishEvent('b', digitalJoin, true));
   button.addEventListener('mouseup', () => CrComLib.publishEvent('b', digitalJoin, false));
   button.addEventListener('mouseleave', () => CrComLib.publishEvent('b', digitalJoin, false));
-  button.addEventListener('touchstart', () => CrComLib.publishEvent('b', digitalJoin, true));
-  button.addEventListener('touchend', () => CrComLib.publishEvent('b', digitalJoin, false));
+      button.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        CrComLib.publishEvent('b', digitalJoin, true);
+      });
+      button.addEventListener('touchend', (e) => {
+        e.preventDefault();
+        CrComLib.publishEvent('b', digitalJoin, false);
+      });
 
   CrComLib.subscribeState('b', feedbackJoin, (val) => {
     button.classList.toggle('active', val);

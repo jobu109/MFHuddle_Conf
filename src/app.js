@@ -10,7 +10,8 @@ window.bridgeReceiveStringFromNative = CrComLib.bridgeReceiveStringFromNative;
 window.bridgeReceiveObjectFromNative = CrComLib.bridgeReceiveObjectFromNative;
 
 const configuration = {
-  host: "192.168.1.197",
+  //host: "192.168.1.197",
+  host: "10.14.1.144",
   ipId: "0x04",
   port: 49200,
   roomId: "2",
@@ -40,6 +41,7 @@ window.addEventListener("DOMContentLoaded", () => {
   createOvalButton(document.getElementById('vol-dwn'), 'volume.dwn_btn', 'volume.dwn_fb', '', 'fa-volume-down');  //dig press, dig FB, Label, fa-icon
   createOvalButton(document.getElementById('vol-up'), 'volume.up_btn', 'volume.up_fb', '', 'fa-volume-up');
   createMuteButton(document.getElementById('vol-mute'), 'volume.mute_btn', 'volume.mute_fb', '', 'fa-volume-mute');
+  createOvalButton(document.getElementById('pwr-btn'), 'power.on_btn', 'power.on_fb', '', 'fa-power-off');
   createRectButton(document.getElementById('source-btn-1'), 'source[0].btn', 'source[0].fb', 'source[0].label');  //press, fb, label
   createRectButton(document.getElementById('source-btn-2'), 'source[1].btn', 'source[1].fb', 'source[1].label');  //press, fb, label
   createRectButton(document.getElementById('source-btn-3'), 'source[2].btn', 'source[2].fb', 'source[2].label');  //press, fb, label
@@ -86,7 +88,7 @@ window.addEventListener("DOMContentLoaded", () => {
   createCircularGauge(document.getElementById('gauge-mic-2'), 'miclevel[1].level_set', 'miclevel[1].level_fb', 'miclevel[1].label');//Analog Set, Analogfb, text join
   createCircularGauge(document.getElementById('gauge-mic-3'), 'miclevel[2].level_set', 'miclevel[2].level_fb', 'miclevel[2].label');//Analog Set, Analogfb, text join
   createCircularGauge(document.getElementById('gauge-mic-4'), 'miclevel[3].level_set', 'miclevel[3].level_fb', 'miclevel[3].label');//Analog Set, Analogfb, text join
-  createShutdownProgress(document.getElementById('shutdown-progress'), 'shutdownprogress.fb', 'shutdownprogress.send');//analog join, text join
+  createShutdownProgress(document.getElementById('shutdown-progress'), 'shutdownprogress.level_fb', 'shutdownprogress.label');//analog join, text join
   createAnalogClock(document.getElementById("analog-clock"), 'clock.time' , 'clock.cityname');
   createFlipCards(document.getElementById('flip-card'), {
     selectedBaseJoin: '151',  // Digital input base join for flip (auto-generated +1 for each "card" ...)
@@ -97,33 +99,9 @@ window.addEventListener("DOMContentLoaded", () => {
       { image: 'assets/img/Circle_Glass.png', title: 'Display 3', description: 'Display 3 has been selected' },
     ]
   });
+  /* Glass Carousel */
+  createGlassCarousel(document.getElementById('glass-carousel-1'), { join:'carousel.level_set', feedbackjoin:'carousel.level_fb',});
 
-  createGlassCarousel(document.getElementById('glass-carousel-1'), {
-    join: 'carousel.level_set',
-    feedbackJoin: 'carousel.level_fb',
-    slides: [
-      `
-      <div class="glass-label">TV 1</div>
-      <div class="glass-button-group">
-        <div id="tv1-hdmi1"></div>
-        <div id="tv1-hdmi2"></div>
-      </div>
-      `,
-      `
-      <div class="glass-label">TV 2</div>
-      <div class="glass-button-group">
-        <div id="tv2-hdmi1"></div>
-        <div id="tv2-hdmi2"></div>
-      </div>
-      `,      `
-      <div class="glass-label">TV 3</div>
-      <div class="glass-button-group">
-        <div id="tv3-hdmi1"></div>
-        <div id="tv3-hdmi2"></div>
-      </div>
-      `
-    ]
-  });
     createRectButton(document.getElementById('tv1-hdmi1'), 'tvs[0].hdmi1_btn', 'tvs[0].hdmi1_fb', 'tvs[0].hdmi1_label');
     createRectButton(document.getElementById('tv1-hdmi2'), 'tvs[0].hdmi2_btn', 'tvs[0].hdmi2_fb', 'tvs[0].hdmi2_label');
 
@@ -132,6 +110,21 @@ window.addEventListener("DOMContentLoaded", () => {
 
     createRectButton(document.getElementById('tv3-hdmi1'), 'tvs[2].hdmi1_btn', 'tvs[2].hdmi1_fb', 'tvs[2].hdmi1_label');
     createRectButton(document.getElementById('tv3-hdmi2'), 'tvs[2].hdmi2_btn', 'tvs[2].hdmi2_fb', 'tvs[2].hdmi2_label');
+
+    createRectButton(document.getElementById('tv4-hdmi1'), 'tvs[3].hdmi1_btn', 'tvs[3].hdmi1_fb', 'tvs[3].hdmi1_label');
+    createRectButton(document.getElementById('tv4-hdmi2'), 'tvs[3].hdmi2_btn', 'tvs[3].hdmi2_fb', 'tvs[3].hdmi2_label');
+
+    createRectButton(document.getElementById('tv5-hdmi1'), 'tvs[4].hdmi1_btn', 'tvs[4].hdmi1_fb', 'tvs[4].hdmi1_label');
+    createRectButton(document.getElementById('tv5-hdmi2'), 'tvs[4].hdmi2_btn', 'tvs[4].hdmi2_fb', 'tvs[4].hdmi2_label');
+
+    setTimeout(() => {
+      createToggleSwitch(document.getElementById('tv1-power'), 'tvs[0].on_btn', 'tvs[0].on_fb');
+      createToggleSwitch(document.getElementById('tv2-power'), 'tvs[1].on_btn', 'tvs[1].on_fb');
+      createToggleSwitch(document.getElementById('tv3-power'), 'tvs[2].on_btn', 'tvs[2].on_fb');
+      createToggleSwitch(document.getElementById('tv4-power'), 'tvs[3].on_btn', 'tvs[3].on_fb');
+      createToggleSwitch(document.getElementById('tv5-power'), 'tvs[4].on_btn', 'tvs[4].on_fb');
+    }, 2000); // delay long enough for carousel DOM to render
+  /* Glass Carousel */
 
   createCircularPreloader(document.getElementById('circular-preloader'), 'circular.label','Please Wait.......');  
   createRollingMenu(document.getElementById('rolling-menu-1'), {
@@ -144,19 +137,19 @@ window.addEventListener("DOMContentLoaded", () => {
   createRadioToggle(document.getElementById('radio-toggle1'), {
     groupId: 'grp1',
     buttons: [
-      { label: 'Button 1', digitalJoin: 'radio[0].btn_1', feedbackJoin: 'raqdio[0].btn_1_fb', textJoin: 'radio[0].label_1' },
-      { label: 'Button 2', digitalJoin: 'radio[0].btn_2', feedbackJoin: 'raqdio[0].btn_2_fb', textJoin: 'radio[0].label_2' },
-      { label: 'Button 3', digitalJoin: 'radio[0].btn_3', feedbackJoin: 'raqdio[0].btn_3_fb', textJoin: 'radio[0].label_3' },
+      { label: 'Button 1', digitalJoin: 'radio[0].btn_1', feedbackJoin: 'radio[0].btn_1_fb', textJoin: 'radio[0].label_1' },
+      { label: 'Button 2', digitalJoin: 'radio[0].btn_2', feedbackJoin: 'radio[0].btn_2_fb', textJoin: 'radio[0].label_2' },
+      { label: 'Button 3', digitalJoin: 'radio[0].btn_3', feedbackJoin: 'radio[0].btn_3_fb', textJoin: 'radio[0].label_3' },
     ]
   });
   
   createRadioToggle(document.getElementById('radio-toggle2'), {
     groupId: 'grp2',
     buttons: [
-      { label: 'Button 1', digitalJoin: 'radio[1].btn_1', feedbackJoin: 'raqdio[1].btn_1_fb', textJoin: 'radio[1].label_1' },
-      { label: 'Button 2', digitalJoin: 'radio[1].btn_2', feedbackJoin: 'raqdio[1].btn_2_fb', textJoin: 'radio[1].label_2' },
-      { label: 'Button 3', digitalJoin: 'radio[1].btn_3', feedbackJoin: 'raqdio[1].btn_3_fb', textJoin: 'radio[1].label_3' },
-      { label: 'Button 4', digitalJoin: 'radio[1].btn_4', feedbackJoin: 'raqdio[1].btn_4_fb', textJoin: 'radio[1].label_4' },
+      { label: 'Button 1', digitalJoin: 'radio[1].btn_1', feedbackJoin: 'radio[1].btn_1_fb', textJoin: 'radio[1].label_1' },
+      { label: 'Button 2', digitalJoin: 'radio[1].btn_2', feedbackJoin: 'radio[1].btn_2_fb', textJoin: 'radio[1].label_2' },
+      { label: 'Button 3', digitalJoin: 'radio[1].btn_3', feedbackJoin: 'radio[1].btn_3_fb', textJoin: 'radio[1].label_3' },
+      { label: 'Button 4', digitalJoin: 'radio[1].btn_4', feedbackJoin: 'radio[1].btn_4_fb', textJoin: 'radio[1].label_4' },
     ]
   });
   

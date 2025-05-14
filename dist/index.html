@@ -101,10 +101,53 @@
 
     <div id="displays-content" class="content-page">
       <h1>TVs</h1> 
-        <div class="card-section">
-          <div id="glass-carousel-1"></div>
-        </div>
+      <div class="card-section">
+        <!-- Templates for carousel slides -->
+        <template id="carousel-slide-1">
+          <div class="glass-label">TV 1</div>
+            <div id="tv1-power"></div>
+          <div class="glass-button-group">
+            <div id="tv1-hdmi1"></div>
+            <div id="tv1-hdmi2"></div>
+          </div>
+        </template>
+        <template id="carousel-slide-2">
+          <div class="glass-label">TV 2</div>
+            <div id="tv2-power"></div>
+          <div class="glass-button-group">
+            <div id="tv2-hdmi1"></div>
+            <div id="tv2-hdmi2"></div>
+          </div>
+        </template>
+        <template id="carousel-slide-3">
+          <div class="glass-label">TV 3</div>
+            <div id="tv3-power"></div>
+          <div class="glass-button-group">
+            <div id="tv3-hdmi1"></div>
+            <div id="tv3-hdmi2"></div>
+          </div>
+        </template>
+        <template id="carousel-slide-4">
+          <div class="glass-label">TV 4</div>
+            <div id="tv4-power"></div>
+          <div class="glass-button-group">
+            <div id="tv4-hdmi1"></div>
+            <div id="tv4-hdmi2"></div>
+          </div>
+        </template>
+        <template id="carousel-slide-5">
+          <div class="glass-label">TV 5</div>
+            <div id="tv5-power"></div>
+          <div class="glass-button-group">
+            <div id="tv5-hdmi1"></div>
+            <div id="tv5-hdmi2"></div>
+          </div>
+        </template>
+        <!-- Carousel container -->
+        <div id="glass-carousel-1"></div>
+      </div>
     </div>
+
   
     <div id="camera-content" class="content-page">
       <h1>Camera Controls</h1>
@@ -177,9 +220,7 @@
       </div>
     
       <div class="power-group">
-        <button id="power-btn" class="btn-power">
-          <i class="fas fa-power-off"></i>
-        </button>
+          <div id="pwr-btn"></div>
       </div>
     
     </footer>
