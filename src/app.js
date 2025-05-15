@@ -10,8 +10,8 @@ window.bridgeReceiveStringFromNative = CrComLib.bridgeReceiveStringFromNative;
 window.bridgeReceiveObjectFromNative = CrComLib.bridgeReceiveObjectFromNative;
 
 const configuration = {
-  //host: "192.168.1.197",
-  host: "10.14.1.144",
+  host: "192.168.1.197",
+  //host: "10.14.1.144",
   ipId: "0x04",
   port: 49200,
   roomId: "2",

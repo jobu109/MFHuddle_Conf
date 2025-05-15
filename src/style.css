@@ -719,6 +719,7 @@ h1, h2, h3, p {
 /*Radio Toggle Styles*/
 .radio-toggle {
   display: flex;
+  position: relative;
   align-items: center;
   justify-content: flex-start;
   position: relative;
@@ -753,18 +754,6 @@ h1, h2, h3, p {
   text-shadow: 0 0 12px rgba(255, 255, 255, 0.9);
 }
 
-.radio-toggle .slider {
-  position: absolute;
-  top: 2px;
-  height: 40px;
-  width: 100px;
-  background: rgb(4, 170, 142);
-  border-radius: 6px;
-  transition: left 0.25s ease-in-out, background-color 0.25s;
-  box-shadow: 0 0 15px rgb(4, 170, 142);
-  z-index: 1;
-  animation: pulse-glow-mic 1.5s infinite;
-}
 .radio-toggle input[id^="radio-left"]:checked ~ .slider {
   left: 2px;
 }
@@ -773,6 +762,19 @@ h1, h2, h3, p {
 }
 .radio-toggle input[id^="radio-right"]:checked ~ .slider {
   left: 206px;
+}
+.radio-toggle label {
+  transition: all 0.2s ease-in-out;
+  box-shadow: 6px 6px 12px #0a0a0a, -6px -6px 12px #1e1e1e; /* Normal raised */
+  border-radius: 6px;
+}
+
+.radio-toggle label.pressed {
+  box-shadow:
+    inset 2px 2px 5px rgba(0, 0, 0, 0.4),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.01);
+  background-color: #474444;
+  transform: scale(0.985);
 }
 /* Radio Toggle Style*/
 
@@ -1071,6 +1073,7 @@ h1, h2, h3, p {
   font-size: 2rem;
   backdrop-filter: blur(10px);
   cursor: pointer;
+  pointer-events: auto;
 }
 
 .glass-track-wrapper {
