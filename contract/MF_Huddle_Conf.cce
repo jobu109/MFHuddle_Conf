@@ -130,6 +130,14 @@
 			"componentId": "_w55et0uv6",
 			"instanceName": "radio",
 			"numberOfInstances": 2
+		},
+		{
+			"Errors": [],
+			"parentId": "_nhpw4foqf",
+			"id": "_ylcub0emt",
+			"componentId": "_w55et0uv6",
+			"instanceName": "callsource",
+			"numberOfInstances": 1
 		}
 	],
 	"components": [
@@ -473,6 +481,106 @@
 					"id": "_14lrif5p5",
 					"parentId": "_w55et0uv6",
 					"attributeType": 0
+				},
+				{
+					"Errors": [],
+					"name": "btn_6_fb",
+					"siblingId": "_rsewblehl",
+					"dataType": 1,
+					"notes": "",
+					"id": "_aw8qaswt1",
+					"parentId": "_w55et0uv6",
+					"attributeType": 0
+				},
+				{
+					"Errors": [],
+					"name": "btn_7_fb",
+					"siblingId": "_v742qvjgs",
+					"dataType": 1,
+					"notes": "",
+					"id": "_q9bp3csag",
+					"parentId": "_w55et0uv6",
+					"attributeType": 0
+				},
+				{
+					"Errors": [],
+					"name": "btn_8_fb",
+					"siblingId": "_dzdb5b1y5",
+					"dataType": 1,
+					"notes": "",
+					"id": "_gqlz9kfqi",
+					"parentId": "_w55et0uv6",
+					"attributeType": 0
+				},
+				{
+					"Errors": [],
+					"name": "btn_9_fb",
+					"siblingId": "_tw8y7uzoq",
+					"dataType": 1,
+					"notes": "",
+					"id": "_lseoavt30",
+					"parentId": "_w55et0uv6",
+					"attributeType": 0
+				},
+				{
+					"Errors": [],
+					"name": "btn_10_fb",
+					"siblingId": "_iqurj1wgs",
+					"dataType": 1,
+					"notes": "",
+					"id": "_70pupdl0i",
+					"parentId": "_w55et0uv6",
+					"attributeType": 0
+				},
+				{
+					"Errors": [],
+					"name": "label_6",
+					"siblingId": "_v0fmioz98",
+					"dataType": 3,
+					"notes": "",
+					"id": "_mx7iulgkm",
+					"parentId": "_w55et0uv6",
+					"attributeType": 0
+				},
+				{
+					"Errors": [],
+					"name": "label_7",
+					"siblingId": "_8tnpxb5mp",
+					"dataType": 3,
+					"notes": "",
+					"id": "_3qq1t3l4m",
+					"parentId": "_w55et0uv6",
+					"attributeType": 0
+				},
+				{
+					"Errors": [],
+					"name": "label_8",
+					"siblingId": "_c735548zn",
+					"dataType": 3,
+					"notes": "",
+					"id": "_zgqt0tdd3",
+					"parentId": "_w55et0uv6",
+					"attributeType": 0
+				},
+				{
+					"Errors": [],
+					"name": "label_9",
+					"siblingId": "_4c2rbuy3i",
+					"dataType": 3,
+					"notes": "",
+					"id": "_pwkidmaic",
+					"parentId": "_w55et0uv6",
+					"attributeType": 0
+				},
+				{
+					"Errors": [],
+					"name": "label_10",
+					"siblingId": "_6nrkurpn0",
+					"dataType": 3,
+					"notes": "",
+					"id": "_ujilp0bxx",
+					"parentId": "_w55et0uv6",
+					"attributeType": 0
 				}
 			],
 			"feedbacks": [
@@ -550,7 +658,7 @@
 					"Errors": [],
 					"name": "",
 					"siblingId": "_544cicpqs",
-					"dataType": 0,
+					"dataType": 3,
 					"notes": "",
 					"id": "_kkcyrrfru",
 					"parentId": "_w55et0uv6",
@@ -560,7 +668,7 @@
 					"Errors": [],
 					"name": "",
 					"siblingId": "_sq76m444w",
-					"dataType": 0,
+					"dataType": 3,
 					"notes": "",
 					"id": "_24g1ltyc6",
 					"parentId": "_w55et0uv6",
@@ -570,9 +678,109 @@
 					"Errors": [],
 					"name": "",
 					"siblingId": "_14lrif5p5",
-					"dataType": 0,
+					"dataType": 3,
 					"notes": "",
 					"id": "_jxtzdv59a",
+					"parentId": "_w55et0uv6",
+					"attributeType": 1
+				},
+				{
+					"Errors": [],
+					"name": "btn_6",
+					"siblingId": "_aw8qaswt1",
+					"dataType": 1,
+					"notes": "",
+					"id": "_rsewblehl",
+					"parentId": "_w55et0uv6",
+					"attributeType": 1
+				},
+				{
+					"Errors": [],
+					"name": "btn_7",
+					"siblingId": "_q9bp3csag",
+					"dataType": 1,
+					"notes": "",
+					"id": "_v742qvjgs",
+					"parentId": "_w55et0uv6",
+					"attributeType": 1
+				},
+				{
+					"Errors": [],
+					"name": "btn_8",
+					"siblingId": "_gqlz9kfqi",
+					"dataType": 1,
+					"notes": "",
+					"id": "_dzdb5b1y5",
+					"parentId": "_w55et0uv6",
+					"attributeType": 1
+				},
+				{
+					"Errors": [],
+					"name": "btn_9",
+					"siblingId": "_lseoavt30",
+					"dataType": 1,
+					"notes": "",
+					"id": "_tw8y7uzoq",
+					"parentId": "_w55et0uv6",
+					"attributeType": 1
+				},
+				{
+					"Errors": [],
+					"name": "btn_10",
+					"siblingId": "_70pupdl0i",
+					"dataType": 1,
+					"notes": "",
+					"id": "_iqurj1wgs",
+					"parentId": "_w55et0uv6",
+					"attributeType": 1
+				},
+				{
+					"Errors": [],
+					"name": "",
+					"siblingId": "_mx7iulgkm",
+					"dataType": 0,
+					"notes": "",
+					"id": "_v0fmioz98",
+					"parentId": "_w55et0uv6",
+					"attributeType": 1
+				},
+				{
+					"Errors": [],
+					"name": "",
+					"siblingId": "_3qq1t3l4m",
+					"dataType": 0,
+					"notes": "",
+					"id": "_8tnpxb5mp",
+					"parentId": "_w55et0uv6",
+					"attributeType": 1
+				},
+				{
+					"Errors": [],
+					"name": "",
+					"siblingId": "_zgqt0tdd3",
+					"dataType": 0,
+					"notes": "",
+					"id": "_c735548zn",
+					"parentId": "_w55et0uv6",
+					"attributeType": 1
+				},
+				{
+					"Errors": [],
+					"name": "",
+					"siblingId": "_pwkidmaic",
+					"dataType": 0,
+					"notes": "",
+					"id": "_4c2rbuy3i",
+					"parentId": "_w55et0uv6",
+					"attributeType": 1
+				},
+				{
+					"Errors": [],
+					"name": "",
+					"siblingId": "_ujilp0bxx",
+					"dataType": 0,
+					"notes": "",
+					"id": "_6nrkurpn0",
 					"parentId": "_w55et0uv6",
 					"attributeType": 1
 				}

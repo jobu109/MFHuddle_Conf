@@ -41,6 +41,7 @@ module.exports = {
         { from: 'src/volumeslider.js', to: 'volumeslider.js' },
         { from: 'src/circular-gauge.js', to: 'circular-gauge.js' },
         { from: 'src/radio-toggle.js', to: 'radio-toggle.js' },
+        { from: 'src/radio-toggle-vert.js', to: 'radio-toggle-vert.js' },
         { from: 'src/circular-preloader.js', to: 'circular-preloader.js' },
         { from: 'src/rolling-menu.js', to: 'rolling-menu.js' },
         { from: 'src/shutdown-progress.js', to: 'shutdown-progress.js' },

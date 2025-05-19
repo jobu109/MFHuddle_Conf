@@ -70,6 +70,9 @@ namespace MF_Huddle_Conf
         public MF_Huddle_Conf.IRadioToggle[] radio { get { return Internalradio.Cast<MF_Huddle_Conf.IRadioToggle>().ToArray(); } }
         private MF_Huddle_Conf.RadioToggle[] Internalradio { get; set; }
 
+        public MF_Huddle_Conf.IRadioToggle callsource { get { return (MF_Huddle_Conf.IRadioToggle)Internalcallsource; } }
+        private MF_Huddle_Conf.RadioToggle Internalcallsource { get; set; }
+
         #endregion
 
         #region Construction and Initialization
@@ -161,6 +164,7 @@ namespace MF_Huddle_Conf
             {
                 Internalradio[index] = new MF_Huddle_Conf.RadioToggle(ComponentMediator, RadioSmartObjectIdMappings[index]);
             }
+            Internalcallsource = new MF_Huddle_Conf.RadioToggle(ComponentMediator, 54);
 
             for (int index = 0; index < devices.Length; index++)
             {
@@ -232,6 +236,7 @@ namespace MF_Huddle_Conf
             {
                 Internalradio[index].AddDevice(device);
             }
+            Internalcallsource.AddDevice(device);
         }
 
         public void RemoveDevice(BasicTriListWithSmartObject device)
@@ -278,6 +283,7 @@ namespace MF_Huddle_Conf
             {
                 Internalradio[index].RemoveDevice(device);
             }
+            Internalcallsource.RemoveDevice(device);
         }
 
         #endregion
@@ -335,6 +341,7 @@ namespace MF_Huddle_Conf
             {
                 Internalradio[index].Dispose();
             }
+            Internalcallsource.Dispose();
             ComponentMediator.Dispose(); 
         }
 

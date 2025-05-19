@@ -15,17 +15,32 @@ namespace MF_Huddle_Conf
         event EventHandler<UIEventArgs> btn_3;
         event EventHandler<UIEventArgs> btn_4;
         event EventHandler<UIEventArgs> btn_5;
+        event EventHandler<UIEventArgs> btn_6;
+        event EventHandler<UIEventArgs> btn_7;
+        event EventHandler<UIEventArgs> btn_8;
+        event EventHandler<UIEventArgs> btn_9;
+        event EventHandler<UIEventArgs> btn_10;
 
         void btn_1_fb(RadioToggleBoolInputSigDelegate callback);
         void btn_2_fb(RadioToggleBoolInputSigDelegate callback);
         void btn_3_fb(RadioToggleBoolInputSigDelegate callback);
         void btn_4_fb(RadioToggleBoolInputSigDelegate callback);
         void btn_5_fb(RadioToggleBoolInputSigDelegate callback);
+        void btn_6_fb(RadioToggleBoolInputSigDelegate callback);
+        void btn_7_fb(RadioToggleBoolInputSigDelegate callback);
+        void btn_8_fb(RadioToggleBoolInputSigDelegate callback);
+        void btn_9_fb(RadioToggleBoolInputSigDelegate callback);
+        void btn_10_fb(RadioToggleBoolInputSigDelegate callback);
         void label_1(RadioToggleStringInputSigDelegate callback);
         void label_2(RadioToggleStringInputSigDelegate callback);
         void label_3(RadioToggleStringInputSigDelegate callback);
         void label_4(RadioToggleStringInputSigDelegate callback);
         void label_5(RadioToggleStringInputSigDelegate callback);
+        void label_6(RadioToggleStringInputSigDelegate callback);
+        void label_7(RadioToggleStringInputSigDelegate callback);
+        void label_8(RadioToggleStringInputSigDelegate callback);
+        void label_9(RadioToggleStringInputSigDelegate callback);
+        void label_10(RadioToggleStringInputSigDelegate callback);
 
     }
 
@@ -58,12 +73,22 @@ namespace MF_Huddle_Conf
                 public const uint btn_3 = 3;
                 public const uint btn_4 = 4;
                 public const uint btn_5 = 5;
+                public const uint btn_6 = 6;
+                public const uint btn_7 = 7;
+                public const uint btn_8 = 8;
+                public const uint btn_9 = 9;
+                public const uint btn_10 = 10;
 
                 public const uint btn_1_fb = 1;
                 public const uint btn_2_fb = 2;
                 public const uint btn_3_fb = 3;
                 public const uint btn_4_fb = 4;
                 public const uint btn_5_fb = 5;
+                public const uint btn_6_fb = 6;
+                public const uint btn_7_fb = 7;
+                public const uint btn_8_fb = 8;
+                public const uint btn_9_fb = 9;
+                public const uint btn_10_fb = 10;
             }
             internal static class Strings
             {
@@ -73,6 +98,11 @@ namespace MF_Huddle_Conf
                 public const uint label_3 = 3;
                 public const uint label_4 = 4;
                 public const uint label_5 = 5;
+                public const uint label_6 = 6;
+                public const uint label_7 = 7;
+                public const uint label_8 = 8;
+                public const uint label_9 = 9;
+                public const uint label_10 = 10;
             }
         }
 
@@ -97,6 +127,11 @@ namespace MF_Huddle_Conf
             ComponentMediator.ConfigureBooleanEvent(controlJoinId, Joins.Booleans.btn_3, onbtn_3);
             ComponentMediator.ConfigureBooleanEvent(controlJoinId, Joins.Booleans.btn_4, onbtn_4);
             ComponentMediator.ConfigureBooleanEvent(controlJoinId, Joins.Booleans.btn_5, onbtn_5);
+            ComponentMediator.ConfigureBooleanEvent(controlJoinId, Joins.Booleans.btn_6, onbtn_6);
+            ComponentMediator.ConfigureBooleanEvent(controlJoinId, Joins.Booleans.btn_7, onbtn_7);
+            ComponentMediator.ConfigureBooleanEvent(controlJoinId, Joins.Booleans.btn_8, onbtn_8);
+            ComponentMediator.ConfigureBooleanEvent(controlJoinId, Joins.Booleans.btn_9, onbtn_9);
+            ComponentMediator.ConfigureBooleanEvent(controlJoinId, Joins.Booleans.btn_10, onbtn_10);
 
         }
 
@@ -156,6 +191,46 @@ namespace MF_Huddle_Conf
                 handler(this, UIEventArgs.CreateEventArgs(eventArgs));
         }
 
+        public event EventHandler<UIEventArgs> btn_6;
+        private void onbtn_6(SmartObjectEventArgs eventArgs)
+        {
+            EventHandler<UIEventArgs> handler = btn_6;
+            if (handler != null)
+                handler(this, UIEventArgs.CreateEventArgs(eventArgs));
+        }
+
+        public event EventHandler<UIEventArgs> btn_7;
+        private void onbtn_7(SmartObjectEventArgs eventArgs)
+        {
+            EventHandler<UIEventArgs> handler = btn_7;
+            if (handler != null)
+                handler(this, UIEventArgs.CreateEventArgs(eventArgs));
+        }
+
+        public event EventHandler<UIEventArgs> btn_8;
+        private void onbtn_8(SmartObjectEventArgs eventArgs)
+        {
+            EventHandler<UIEventArgs> handler = btn_8;
+            if (handler != null)
+                handler(this, UIEventArgs.CreateEventArgs(eventArgs));
+        }
+
+        public event EventHandler<UIEventArgs> btn_9;
+        private void onbtn_9(SmartObjectEventArgs eventArgs)
+        {
+            EventHandler<UIEventArgs> handler = btn_9;
+            if (handler != null)
+                handler(this, UIEventArgs.CreateEventArgs(eventArgs));
+        }
+
+        public event EventHandler<UIEventArgs> btn_10;
+        private void onbtn_10(SmartObjectEventArgs eventArgs)
+        {
+            EventHandler<UIEventArgs> handler = btn_10;
+            if (handler != null)
+                handler(this, UIEventArgs.CreateEventArgs(eventArgs));
+        }
+
 
         public void btn_1_fb(RadioToggleBoolInputSigDelegate callback)
         {
@@ -194,6 +269,46 @@ namespace MF_Huddle_Conf
             for (int index = 0; index < Devices.Count; index++)
             {
                 callback(Devices[index].SmartObjects[ControlJoinId].BooleanInput[Joins.Booleans.btn_5_fb], this);
+            }
+        }
+
+        public void btn_6_fb(RadioToggleBoolInputSigDelegate callback)
+        {
+            for (int index = 0; index < Devices.Count; index++)
+            {
+                callback(Devices[index].SmartObjects[ControlJoinId].BooleanInput[Joins.Booleans.btn_6_fb], this);
+            }
+        }
+
+        public void btn_7_fb(RadioToggleBoolInputSigDelegate callback)
+        {
+            for (int index = 0; index < Devices.Count; index++)
+            {
+                callback(Devices[index].SmartObjects[ControlJoinId].BooleanInput[Joins.Booleans.btn_7_fb], this);
+            }
+        }
+
+        public void btn_8_fb(RadioToggleBoolInputSigDelegate callback)
+        {
+            for (int index = 0; index < Devices.Count; index++)
+            {
+                callback(Devices[index].SmartObjects[ControlJoinId].BooleanInput[Joins.Booleans.btn_8_fb], this);
+            }
+        }
+
+        public void btn_9_fb(RadioToggleBoolInputSigDelegate callback)
+        {
+            for (int index = 0; index < Devices.Count; index++)
+            {
+                callback(Devices[index].SmartObjects[ControlJoinId].BooleanInput[Joins.Booleans.btn_9_fb], this);
+            }
+        }
+
+        public void btn_10_fb(RadioToggleBoolInputSigDelegate callback)
+        {
+            for (int index = 0; index < Devices.Count; index++)
+            {
+                callback(Devices[index].SmartObjects[ControlJoinId].BooleanInput[Joins.Booleans.btn_10_fb], this);
             }
         }
 
@@ -238,6 +353,46 @@ namespace MF_Huddle_Conf
             }
         }
 
+        public void label_6(RadioToggleStringInputSigDelegate callback)
+        {
+            for (int index = 0; index < Devices.Count; index++)
+            {
+                callback(Devices[index].SmartObjects[ControlJoinId].StringInput[Joins.Strings.label_6], this);
+            }
+        }
+
+        public void label_7(RadioToggleStringInputSigDelegate callback)
+        {
+            for (int index = 0; index < Devices.Count; index++)
+            {
+                callback(Devices[index].SmartObjects[ControlJoinId].StringInput[Joins.Strings.label_7], this);
+            }
+        }
+
+        public void label_8(RadioToggleStringInputSigDelegate callback)
+        {
+            for (int index = 0; index < Devices.Count; index++)
+            {
+                callback(Devices[index].SmartObjects[ControlJoinId].StringInput[Joins.Strings.label_8], this);
+            }
+        }
+
+        public void label_9(RadioToggleStringInputSigDelegate callback)
+        {
+            for (int index = 0; index < Devices.Count; index++)
+            {
+                callback(Devices[index].SmartObjects[ControlJoinId].StringInput[Joins.Strings.label_9], this);
+            }
+        }
+
+        public void label_10(RadioToggleStringInputSigDelegate callback)
+        {
+            for (int index = 0; index < Devices.Count; index++)
+            {
+                callback(Devices[index].SmartObjects[ControlJoinId].StringInput[Joins.Strings.label_10], this);
+            }
+        }
+
         #endregion
 
         #region Overrides
@@ -270,6 +425,11 @@ namespace MF_Huddle_Conf
             btn_3 = null;
             btn_4 = null;
             btn_5 = null;
+            btn_6 = null;
+            btn_7 = null;
+            btn_8 = null;
+            btn_9 = null;
+            btn_10 = null;
         }
 
         #endregion

@@ -48,7 +48,6 @@
       if (btn.feedbackJoin) {
         CrComLib.subscribeState('b', btn.feedbackJoin, (val) => {
           input.checked = val;
-          //const labelEl = document.getElementById(`label-${config.groupId}-${index}`);
           if (val) {
             label.classList.add('pressed');
           } else {

@@ -152,10 +152,19 @@ window.addEventListener("DOMContentLoaded", () => {
       { label: 'Button 4', digitalJoin: 'radio[1].btn_4', feedbackJoin: 'radio[1].btn_4_fb', textJoin: 'radio[1].label_4' },
     ]
   });
-  
 
+  createVerticalRadioToggle(document.getElementById('call-toggle'),{
+    groupId: 'grp3',
+    buttons: [
+      { label: 'Button 1', digitalJoin: 'callsource.btn_1', feedbackJoin: 'callsource.btn_1_fb', textJoin: 'callsource.label_1' },
+      { label: 'Button 2', digitalJoin: 'callsource.btn_2', feedbackJoin: 'callsource.btn_2_fb', textJoin: 'callsource.label_2' },
+      { label: 'Button 3', digitalJoin: 'callsource.btn_3', feedbackJoin: 'callsource.btn_3_fb', textJoin: 'callsource.label_3' },
+      { label: 'Button 4', digitalJoin: 'callsource.btn_4', feedbackJoin: 'callsource.btn_4_fb', textJoin: 'callsource.label_4' },
+      { label: 'Button 5', digitalJoin: 'callsource.btn_5', feedbackJoin: 'callsource.btn_5_fb', textJoin: 'callsource.label_5' },
+      { label: 'Button 6', digitalJoin: 'callsource.btn_6', feedbackJoin: 'callsource.btn_6_fb', textJoin: 'callsource.label_6' },
+    ]
+  });
 });
-
 function initializeCrComLibEvents() {
   CrComLib.subscribeState('s', '1', (value) => {
     const elem = document.getElementById('room-name');

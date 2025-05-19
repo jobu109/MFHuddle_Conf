@@ -1,6 +1,6 @@
 {
 	"name": "MF_Huddle_Conf",
-	"timestamp": "2025-05-13 14:03:56.791",
+	"timestamp": "2025-05-19 09:35:30.581",
 	"version": "1.0.0.0",
 	"schema_version": 1,
 	"extra_value": "Conference_Huddle Room CH5",
@@ -172,14 +172,36 @@
 					"2": "radio[0].btn_2_fb",
 					"3": "radio[0].btn_3_fb",
 					"4": "radio[0].btn_4_fb",
-					"5": "radio[0].btn_5_fb"
+					"5": "radio[0].btn_5_fb",
+					"6": "radio[0].btn_6_fb",
+					"7": "radio[0].btn_7_fb",
+					"8": "radio[0].btn_8_fb",
+					"9": "radio[0].btn_9_fb",
+					"10": "radio[0].btn_10_fb"
 				},
 				"53": {
 					"1": "radio[1].btn_1_fb",
 					"2": "radio[1].btn_2_fb",
 					"3": "radio[1].btn_3_fb",
 					"4": "radio[1].btn_4_fb",
-					"5": "radio[1].btn_5_fb"
+					"5": "radio[1].btn_5_fb",
+					"6": "radio[1].btn_6_fb",
+					"7": "radio[1].btn_7_fb",
+					"8": "radio[1].btn_8_fb",
+					"9": "radio[1].btn_9_fb",
+					"10": "radio[1].btn_10_fb"
+				},
+				"54": {
+					"1": "callsource.btn_1_fb",
+					"2": "callsource.btn_2_fb",
+					"3": "callsource.btn_3_fb",
+					"4": "callsource.btn_4_fb",
+					"5": "callsource.btn_5_fb",
+					"6": "callsource.btn_6_fb",
+					"7": "callsource.btn_7_fb",
+					"8": "callsource.btn_8_fb",
+					"9": "callsource.btn_9_fb",
+					"10": "callsource.btn_10_fb"
 				}
 			},
 			"numeric": {
@@ -376,14 +398,36 @@
 					"2": "radio[0].label_2",
 					"3": "radio[0].label_3",
 					"4": "radio[0].label_4",
-					"5": "radio[0].label_5"
+					"5": "radio[0].label_5",
+					"6": "radio[0].label_6",
+					"7": "radio[0].label_7",
+					"8": "radio[0].label_8",
+					"9": "radio[0].label_9",
+					"10": "radio[0].label_10"
 				},
 				"53": {
 					"1": "radio[1].label_1",
 					"2": "radio[1].label_2",
 					"3": "radio[1].label_3",
 					"4": "radio[1].label_4",
-					"5": "radio[1].label_5"
+					"5": "radio[1].label_5",
+					"6": "radio[1].label_6",
+					"7": "radio[1].label_7",
+					"8": "radio[1].label_8",
+					"9": "radio[1].label_9",
+					"10": "radio[1].label_10"
+				},
+				"54": {
+					"1": "callsource.label_1",
+					"2": "callsource.label_2",
+					"3": "callsource.label_3",
+					"4": "callsource.label_4",
+					"5": "callsource.label_5",
+					"6": "callsource.label_6",
+					"7": "callsource.label_7",
+					"8": "callsource.label_8",
+					"9": "callsource.label_9",
+					"10": "callsource.label_10"
 				}
 			}
 		},
@@ -705,6 +749,26 @@
 					"joinId": 5,
 					"smartObjectId": 52
 				},
+				"radio[0].btn_6": {
+					"joinId": 6,
+					"smartObjectId": 52
+				},
+				"radio[0].btn_7": {
+					"joinId": 7,
+					"smartObjectId": 52
+				},
+				"radio[0].btn_8": {
+					"joinId": 8,
+					"smartObjectId": 52
+				},
+				"radio[0].btn_9": {
+					"joinId": 9,
+					"smartObjectId": 52
+				},
+				"radio[0].btn_10": {
+					"joinId": 10,
+					"smartObjectId": 52
+				},
 				"radio[1].btn_1": {
 					"joinId": 1,
 					"smartObjectId": 53
@@ -724,6 +788,66 @@
 				"radio[1].btn_5": {
 					"joinId": 5,
 					"smartObjectId": 53
+				},
+				"radio[1].btn_6": {
+					"joinId": 6,
+					"smartObjectId": 53
+				},
+				"radio[1].btn_7": {
+					"joinId": 7,
+					"smartObjectId": 53
+				},
+				"radio[1].btn_8": {
+					"joinId": 8,
+					"smartObjectId": 53
+				},
+				"radio[1].btn_9": {
+					"joinId": 9,
+					"smartObjectId": 53
+				},
+				"radio[1].btn_10": {
+					"joinId": 10,
+					"smartObjectId": 53
+				},
+				"callsource.btn_1": {
+					"joinId": 1,
+					"smartObjectId": 54
+				},
+				"callsource.btn_2": {
+					"joinId": 2,
+					"smartObjectId": 54
+				},
+				"callsource.btn_3": {
+					"joinId": 3,
+					"smartObjectId": 54
+				},
+				"callsource.btn_4": {
+					"joinId": 4,
+					"smartObjectId": 54
+				},
+				"callsource.btn_5": {
+					"joinId": 5,
+					"smartObjectId": 54
+				},
+				"callsource.btn_6": {
+					"joinId": 6,
+					"smartObjectId": 54
+				},
+				"callsource.btn_7": {
+					"joinId": 7,
+					"smartObjectId": 54
+				},
+				"callsource.btn_8": {
+					"joinId": 8,
+					"smartObjectId": 54
+				},
+				"callsource.btn_9": {
+					"joinId": 9,
+					"smartObjectId": 54
+				},
+				"callsource.btn_10": {
+					"joinId": 10,
+					"smartObjectId": 54
 				}
 			},
 			"numeric": {
