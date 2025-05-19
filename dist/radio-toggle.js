@@ -4,8 +4,10 @@
 
     const wrapper = document.createElement('div');
     wrapper.className = 'radio-toggle';
-    wrapper.style.width = `${config.buttons.length * 104 + 8}px`;
+    //wrapper.style.width = `${config.buttons.length * 104}px`;
+    wrapper.style.width = '100%'; // Allow container to auto-size
 
+  
     const inputs = [];
 
     config.buttons.forEach((btn, index) => {
@@ -46,11 +48,11 @@
       if (btn.feedbackJoin) {
         CrComLib.subscribeState('b', btn.feedbackJoin, (val) => {
           input.checked = val;
-          const labelEl = document.getElementById(`label-${config.groupId}-${index}`);
+          //const labelEl = document.getElementById(`label-${config.groupId}-${index}`);
           if (val) {
-            labelEl.classList.add('pressed');
+            label.classList.add('pressed');
           } else {
-            labelEl.classList.remove('pressed');
+            label.classList.remove('pressed');
           }
         });
       }
